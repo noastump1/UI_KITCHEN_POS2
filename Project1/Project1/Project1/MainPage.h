@@ -1,5 +1,5 @@
 #pragma once
-
+#include "BalanceForm.h"
 namespace Project1 {
 
 	using namespace System;
@@ -119,6 +119,7 @@ namespace Project1 {
 			this->toolStripButton2->Name = L"toolStripButton2";
 			this->toolStripButton2->Size = System::Drawing::Size(105, 22);
 			this->toolStripButton2->Text = L"Student Accounts";
+			this->toolStripButton2->Click += gcnew System::EventHandler(this, &MainPage::toolStripButton2_Click);
 			// 
 			// toolStripSeparator2
 			// 
@@ -178,5 +179,10 @@ namespace Project1 {
 
 		}
 #pragma endregion
-	};
+	private: System::Void toolStripButton2_Click(System::Object^  sender, System::EventArgs^  e) {
+		this->Hide();
+		BalanceForm^ bF = gcnew BalanceForm();
+		bF->ShowDialog();
+	}
+};
 }
