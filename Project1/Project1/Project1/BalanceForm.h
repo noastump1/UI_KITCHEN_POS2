@@ -38,6 +38,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^  lb_Balance;
 	private: System::Windows::Forms::Label^  label1;
 
+
 	protected:
 
 	private:
@@ -61,12 +62,13 @@ namespace Project1 {
 			// bn_balance_Done
 			// 
 			this->bn_balance_Done->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->bn_balance_Done->Location = System::Drawing::Point(197, 226);
+			this->bn_balance_Done->Location = System::Drawing::Point(202, 185);
 			this->bn_balance_Done->Name = L"bn_balance_Done";
 			this->bn_balance_Done->Size = System::Drawing::Size(75, 23);
 			this->bn_balance_Done->TabIndex = 0;
 			this->bn_balance_Done->Text = L"Done";
 			this->bn_balance_Done->UseVisualStyleBackColor = true;
+			this->bn_balance_Done->Click += gcnew System::EventHandler(this, &BalanceForm::bn_balance_Done_Click);
 			// 
 			// lb_Balance
 			// 
@@ -91,7 +93,7 @@ namespace Project1 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(289, 220);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->lb_Balance);
 			this->Controls->Add(this->bn_balance_Done);
@@ -110,8 +112,11 @@ namespace Project1 {
 		}
 #pragma endregion
 	private: System::Void BalanceForm_Load(System::Object^  sender, System::EventArgs^  e) {
+
 	}
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
-	};
+	private: System::Void bn_balance_Done_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 }
