@@ -21,6 +21,9 @@
     <ClCompile Include="BalanceForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoginForm.h">
@@ -28,6 +31,9 @@
     </ClInclude>
     <ClInclude Include="BalanceForm.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPage.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
