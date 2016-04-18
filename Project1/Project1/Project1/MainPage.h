@@ -1,8 +1,13 @@
 #pragma once
 #include "BalanceForm.h"
+
+
+ref class LoginForm1;
+
 namespace Project1 {
 
 	using namespace System;
+
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
 	using namespace System::Windows::Forms;
@@ -169,6 +174,7 @@ namespace Project1 {
 			this->ts_Btn_Logout->Name = L"ts_Btn_Logout";
 			this->ts_Btn_Logout->Size = System::Drawing::Size(49, 22);
 			this->ts_Btn_Logout->Text = L"Logout";
+			this->ts_Btn_Logout->Click += gcnew System::EventHandler(this, &MainPage::ts_Btn_Logout_Click);
 			// 
 			// MainPage
 			// 
@@ -191,5 +197,8 @@ namespace Project1 {
 		BalanceForm^ bF = gcnew BalanceForm();
 		bF->ShowDialog();
 	}
-};
+private: System::Void ts_Btn_Logout_Click(System::Object^  sender, System::EventArgs^  e) {
+			//LoginForm1^ test = gcnew LoginForm1();
+		}
+	};
 }
