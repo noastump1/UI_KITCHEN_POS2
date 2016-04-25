@@ -646,6 +646,10 @@ namespace Project1 {
 
 		}
 #pragma endregion
+		//private: System::Void Frm_FormClosing(System::Object^ sender, FormClosingEventArgs e)
+		//{
+		//	Application app = Application::Exit();
+		//}
 	private: System::Void toolStripButton2_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->Hide();
 		BalanceForm^ bF = gcnew BalanceForm();
@@ -671,5 +675,6 @@ private: System::Void btn_enter_Click(System::Object^  sender, System::EventArgs
 	this->btn_enter->Visible = false;
 	this->tabControl_Main->Visible = true;
 }
+
 };
 }

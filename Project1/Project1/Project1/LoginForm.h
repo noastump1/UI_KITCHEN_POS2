@@ -19,6 +19,9 @@ namespace Project1 {
 		MyForm(void)
 		{
 			InitializeComponent();
+			this->Close();
+			MainPage^ mP = gcnew MainPage();
+			mP->ShowDialog();
 			//
 			//TODO: Add the constructor code here
 			//
