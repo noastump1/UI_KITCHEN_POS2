@@ -41,7 +41,8 @@ namespace Project1 {
 			}
 		}
 	private: System::Windows::Forms::Label^  lbl_Welcome;
-	private: System::Windows::Forms::TabControl^  tabControl1;
+	private: System::Windows::Forms::TabControl^  tabControl_Main;
+
 	private: System::Windows::Forms::TabPage^  tabMain;
 	private: System::Windows::Forms::TabPage^  tabClock;
 
@@ -94,6 +95,11 @@ namespace Project1 {
 
 	private: System::Windows::Forms::TextBox^  txt_PaymentAmount;
 	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::TextBox^  txtbox_Pass;
+	private: System::Windows::Forms::TextBox^  txtbox_User;
+	private: System::Windows::Forms::Label^  lb_pass;
+	private: System::Windows::Forms::Label^  lb_user;
+	private: System::Windows::Forms::Button^  btn_enter;
 	private: System::ComponentModel::IContainer^  components;
 
 
@@ -141,7 +147,7 @@ namespace Project1 {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			this->lbl_Welcome = (gcnew System::Windows::Forms::Label());
-			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->tabControl_Main = (gcnew System::Windows::Forms::TabControl());
 			this->tabMain = (gcnew System::Windows::Forms::TabPage());
 			this->tabClock = (gcnew System::Windows::Forms::TabPage());
 			this->txtbox_CurTime = (gcnew System::Windows::Forms::TextBox());
@@ -162,23 +168,28 @@ namespace Project1 {
 			this->lb_BalanceAmountIndicator = (gcnew System::Windows::Forms::Label());
 			this->tab_BalanceHistory = (gcnew System::Windows::Forms::TabPage());
 			this->tabGuest = (gcnew System::Windows::Forms::TabPage());
+			this->txt_PaymentAmount = (gcnew System::Windows::Forms::TextBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->cmboBox_Year = (gcnew System::Windows::Forms::ComboBox());
+			this->cmboBox_month = (gcnew System::Windows::Forms::ComboBox());
+			this->cmboBox_CardType = (gcnew System::Windows::Forms::ComboBox());
+			this->txtBox_SecurityCode = (gcnew System::Windows::Forms::TextBox());
+			this->txtbox_CardNum = (gcnew System::Windows::Forms::TextBox());
+			this->txtBox_Name = (gcnew System::Windows::Forms::TextBox());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->button_Submit = (gcnew System::Windows::Forms::Button());
 			this->tabInventory = (gcnew System::Windows::Forms::TabPage());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
-			this->button_Submit = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->txtBox_Name = (gcnew System::Windows::Forms::TextBox());
-			this->txtbox_CardNum = (gcnew System::Windows::Forms::TextBox());
-			this->txtBox_SecurityCode = (gcnew System::Windows::Forms::TextBox());
-			this->cmboBox_CardType = (gcnew System::Windows::Forms::ComboBox());
-			this->cmboBox_month = (gcnew System::Windows::Forms::ComboBox());
-			this->cmboBox_Year = (gcnew System::Windows::Forms::ComboBox());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->txt_PaymentAmount = (gcnew System::Windows::Forms::TextBox());
-			this->tabControl1->SuspendLayout();
+			this->txtbox_Pass = (gcnew System::Windows::Forms::TextBox());
+			this->txtbox_User = (gcnew System::Windows::Forms::TextBox());
+			this->lb_pass = (gcnew System::Windows::Forms::Label());
+			this->lb_user = (gcnew System::Windows::Forms::Label());
+			this->btn_enter = (gcnew System::Windows::Forms::Button());
+			this->tabControl_Main->SuspendLayout();
 			this->tabMain->SuspendLayout();
 			this->tabClock->SuspendLayout();
 			this->tabStudent->SuspendLayout();
@@ -196,18 +207,19 @@ namespace Project1 {
 			this->lbl_Welcome->TabIndex = 0;
 			this->lbl_Welcome->Text = L"Welcome to the Kitchen POS.";
 			// 
-			// tabControl1
+			// tabControl_Main
 			// 
-			this->tabControl1->Controls->Add(this->tabMain);
-			this->tabControl1->Controls->Add(this->tabClock);
-			this->tabControl1->Controls->Add(this->tabStudent);
-			this->tabControl1->Controls->Add(this->tabGuest);
-			this->tabControl1->Controls->Add(this->tabInventory);
-			this->tabControl1->Location = System::Drawing::Point(0, 0);
-			this->tabControl1->Name = L"tabControl1";
-			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(756, 541);
-			this->tabControl1->TabIndex = 1;
+			this->tabControl_Main->Controls->Add(this->tabMain);
+			this->tabControl_Main->Controls->Add(this->tabClock);
+			this->tabControl_Main->Controls->Add(this->tabStudent);
+			this->tabControl_Main->Controls->Add(this->tabGuest);
+			this->tabControl_Main->Controls->Add(this->tabInventory);
+			this->tabControl_Main->Location = System::Drawing::Point(12, 12);
+			this->tabControl_Main->Name = L"tabControl_Main";
+			this->tabControl_Main->SelectedIndex = 0;
+			this->tabControl_Main->Size = System::Drawing::Size(756, 541);
+			this->tabControl_Main->TabIndex = 1;
+			this->tabControl_Main->Visible = false;
 			// 
 			// tabMain
 			// 
@@ -423,6 +435,132 @@ namespace Project1 {
 			this->tabGuest->Text = L"Guest Payments";
 			this->tabGuest->UseVisualStyleBackColor = true;
 			// 
+			// txt_PaymentAmount
+			// 
+			this->txt_PaymentAmount->Location = System::Drawing::Point(309, 81);
+			this->txt_PaymentAmount->Name = L"txt_PaymentAmount";
+			this->txt_PaymentAmount->Size = System::Drawing::Size(112, 20);
+			this->txt_PaymentAmount->TabIndex = 16;
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(324, 65);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(87, 13);
+			this->label6->TabIndex = 15;
+			this->label6->Text = L"Payment Amount";
+			// 
+			// cmboBox_Year
+			// 
+			this->cmboBox_Year->FormattingEnabled = true;
+			this->cmboBox_Year->Items->AddRange(gcnew cli::array< System::Object^  >(15) {
+				L"16", L"17", L"18", L"19", L"20", L"21", L"22",
+					L"23", L"24", L"25", L"26", L"27", L"28", L"29", L"30"
+			});
+			this->cmboBox_Year->Location = System::Drawing::Point(368, 373);
+			this->cmboBox_Year->Name = L"cmboBox_Year";
+			this->cmboBox_Year->Size = System::Drawing::Size(43, 21);
+			this->cmboBox_Year->TabIndex = 14;
+			// 
+			// cmboBox_month
+			// 
+			this->cmboBox_month->FormattingEnabled = true;
+			this->cmboBox_month->Items->AddRange(gcnew cli::array< System::Object^  >(12) {
+				L"01", L"02", L"03", L"04", L"05", L"06", L"07",
+					L"08", L"09", L"10", L"11", L"12"
+			});
+			this->cmboBox_month->Location = System::Drawing::Point(315, 373);
+			this->cmboBox_month->Name = L"cmboBox_month";
+			this->cmboBox_month->Size = System::Drawing::Size(47, 21);
+			this->cmboBox_month->TabIndex = 13;
+			// 
+			// cmboBox_CardType
+			// 
+			this->cmboBox_CardType->FormattingEnabled = true;
+			this->cmboBox_CardType->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Visa", L"MasterCard", L"Discover" });
+			this->cmboBox_CardType->Location = System::Drawing::Point(303, 156);
+			this->cmboBox_CardType->Name = L"cmboBox_CardType";
+			this->cmboBox_CardType->Size = System::Drawing::Size(121, 21);
+			this->cmboBox_CardType->TabIndex = 12;
+			// 
+			// txtBox_SecurityCode
+			// 
+			this->txtBox_SecurityCode->Location = System::Drawing::Point(321, 310);
+			this->txtBox_SecurityCode->MaxLength = 3;
+			this->txtBox_SecurityCode->Name = L"txtBox_SecurityCode";
+			this->txtBox_SecurityCode->Size = System::Drawing::Size(100, 20);
+			this->txtBox_SecurityCode->TabIndex = 9;
+			// 
+			// txtbox_CardNum
+			// 
+			this->txtbox_CardNum->Location = System::Drawing::Point(309, 261);
+			this->txtbox_CardNum->MaxLength = 16;
+			this->txtbox_CardNum->Name = L"txtbox_CardNum";
+			this->txtbox_CardNum->Size = System::Drawing::Size(121, 20);
+			this->txtbox_CardNum->TabIndex = 8;
+			// 
+			// txtBox_Name
+			// 
+			this->txtBox_Name->Location = System::Drawing::Point(315, 208);
+			this->txtBox_Name->Name = L"txtBox_Name";
+			this->txtBox_Name->Size = System::Drawing::Size(100, 20);
+			this->txtBox_Name->TabIndex = 7;
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(324, 357);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(83, 13);
+			this->label5->TabIndex = 5;
+			this->label5->Text = L"Experation Date";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(334, 294);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(73, 13);
+			this->label4->TabIndex = 4;
+			this->label4->Text = L"Security Code";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(328, 192);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(75, 13);
+			this->label3->TabIndex = 3;
+			this->label3->Text = L"Name on Card";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(334, 245);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(69, 13);
+			this->label2->TabIndex = 2;
+			this->label2->Text = L"Card Number";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(334, 140);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(56, 13);
+			this->label1->TabIndex = 1;
+			this->label1->Text = L"Card Type";
+			// 
+			// button_Submit
+			// 
+			this->button_Submit->Location = System::Drawing::Point(309, 418);
+			this->button_Submit->Name = L"button_Submit";
+			this->button_Submit->Size = System::Drawing::Size(115, 39);
+			this->button_Submit->TabIndex = 0;
+			this->button_Submit->Text = L"Submit";
+			this->button_Submit->UseVisualStyleBackColor = true;
+			// 
 			// tabInventory
 			// 
 			this->tabInventory->Location = System::Drawing::Point(4, 22);
@@ -437,141 +575,62 @@ namespace Project1 {
 			// 
 			this->timer1->Tick += gcnew System::EventHandler(this, &MainPage::timer1_Tick);
 			// 
-			// button_Submit
+			// txtbox_Pass
 			// 
-			this->button_Submit->Location = System::Drawing::Point(309, 418);
-			this->button_Submit->Name = L"button_Submit";
-			this->button_Submit->Size = System::Drawing::Size(115, 39);
-			this->button_Submit->TabIndex = 0;
-			this->button_Submit->Text = L"Submit";
-			this->button_Submit->UseVisualStyleBackColor = true;
+			this->txtbox_Pass->Location = System::Drawing::Point(213, 217);
+			this->txtbox_Pass->Name = L"txtbox_Pass";
+			this->txtbox_Pass->Size = System::Drawing::Size(100, 20);
+			this->txtbox_Pass->TabIndex = 9;
 			// 
-			// label1
+			// txtbox_User
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(334, 140);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(56, 13);
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"Card Type";
+			this->txtbox_User->Location = System::Drawing::Point(213, 157);
+			this->txtbox_User->Name = L"txtbox_User";
+			this->txtbox_User->Size = System::Drawing::Size(100, 20);
+			this->txtbox_User->TabIndex = 8;
 			// 
-			// label2
+			// lb_pass
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(334, 245);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(69, 13);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"Card Number";
+			this->lb_pass->AutoSize = true;
+			this->lb_pass->Location = System::Drawing::Point(128, 220);
+			this->lb_pass->Name = L"lb_pass";
+			this->lb_pass->Size = System::Drawing::Size(56, 13);
+			this->lb_pass->TabIndex = 7;
+			this->lb_pass->Text = L"Password:";
 			// 
-			// label3
+			// lb_user
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(328, 192);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(75, 13);
-			this->label3->TabIndex = 3;
-			this->label3->Text = L"Name on Card";
+			this->lb_user->AutoSize = true;
+			this->lb_user->Location = System::Drawing::Point(126, 160);
+			this->lb_user->Name = L"lb_user";
+			this->lb_user->Size = System::Drawing::Size(58, 13);
+			this->lb_user->TabIndex = 6;
+			this->lb_user->Text = L"Username:";
 			// 
-			// label4
+			// btn_enter
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(334, 294);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(73, 13);
-			this->label4->TabIndex = 4;
-			this->label4->Text = L"Security Code";
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(324, 357);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(83, 13);
-			this->label5->TabIndex = 5;
-			this->label5->Text = L"Experation Date";
-			// 
-			// txtBox_Name
-			// 
-			this->txtBox_Name->Location = System::Drawing::Point(315, 208);
-			this->txtBox_Name->Name = L"txtBox_Name";
-			this->txtBox_Name->Size = System::Drawing::Size(100, 20);
-			this->txtBox_Name->TabIndex = 7;
-			// 
-			// txtbox_CardNum
-			// 
-			this->txtbox_CardNum->Location = System::Drawing::Point(309, 261);
-			this->txtbox_CardNum->MaxLength = 16;
-			this->txtbox_CardNum->Name = L"txtbox_CardNum";
-			this->txtbox_CardNum->Size = System::Drawing::Size(121, 20);
-			this->txtbox_CardNum->TabIndex = 8;
-			// 
-			// txtBox_SecurityCode
-			// 
-			this->txtBox_SecurityCode->Location = System::Drawing::Point(321, 310);
-			this->txtBox_SecurityCode->MaxLength = 3;
-			this->txtBox_SecurityCode->Name = L"txtBox_SecurityCode";
-			this->txtBox_SecurityCode->Size = System::Drawing::Size(100, 20);
-			this->txtBox_SecurityCode->TabIndex = 9;
-			// 
-			// cmboBox_CardType
-			// 
-			this->cmboBox_CardType->FormattingEnabled = true;
-			this->cmboBox_CardType->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Visa", L"MasterCard", L"Discover" });
-			this->cmboBox_CardType->Location = System::Drawing::Point(303, 156);
-			this->cmboBox_CardType->Name = L"cmboBox_CardType";
-			this->cmboBox_CardType->Size = System::Drawing::Size(121, 21);
-			this->cmboBox_CardType->TabIndex = 12;
-			// 
-			// cmboBox_month
-			// 
-			this->cmboBox_month->FormattingEnabled = true;
-			this->cmboBox_month->Items->AddRange(gcnew cli::array< System::Object^  >(12) {
-				L"01", L"02", L"03", L"04", L"05", L"06", L"07",
-					L"08", L"09", L"10", L"11", L"12"
-			});
-			this->cmboBox_month->Location = System::Drawing::Point(315, 373);
-			this->cmboBox_month->Name = L"cmboBox_month";
-			this->cmboBox_month->Size = System::Drawing::Size(47, 21);
-			this->cmboBox_month->TabIndex = 13;
-			// 
-			// cmboBox_Year
-			// 
-			this->cmboBox_Year->FormattingEnabled = true;
-			this->cmboBox_Year->Items->AddRange(gcnew cli::array< System::Object^  >(15) {
-				L"16", L"17", L"18", L"19", L"20", L"21", L"22",
-					L"23", L"24", L"25", L"26", L"27", L"28", L"29", L"30"
-			});
-			this->cmboBox_Year->Location = System::Drawing::Point(368, 373);
-			this->cmboBox_Year->Name = L"cmboBox_Year";
-			this->cmboBox_Year->Size = System::Drawing::Size(43, 21);
-			this->cmboBox_Year->TabIndex = 14;
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(324, 65);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(87, 13);
-			this->label6->TabIndex = 15;
-			this->label6->Text = L"Payment Amount";
-			// 
-			// txt_PaymentAmount
-			// 
-			this->txt_PaymentAmount->Location = System::Drawing::Point(309, 81);
-			this->txt_PaymentAmount->Name = L"txt_PaymentAmount";
-			this->txt_PaymentAmount->Size = System::Drawing::Size(112, 20);
-			this->txt_PaymentAmount->TabIndex = 16;
+			this->btn_enter->Location = System::Drawing::Point(223, 276);
+			this->btn_enter->Name = L"btn_enter";
+			this->btn_enter->Size = System::Drawing::Size(75, 23);
+			this->btn_enter->TabIndex = 5;
+			this->btn_enter->Text = L"Enter";
+			this->btn_enter->UseVisualStyleBackColor = true;
+			this->btn_enter->Click += gcnew System::EventHandler(this, &MainPage::btn_enter_Click);
 			// 
 			// MainPage
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(768, 543);
-			this->Controls->Add(this->tabControl1);
+			this->ClientSize = System::Drawing::Size(810, 589);
+			this->Controls->Add(this->txtbox_Pass);
+			this->Controls->Add(this->txtbox_User);
+			this->Controls->Add(this->lb_pass);
+			this->Controls->Add(this->lb_user);
+			this->Controls->Add(this->btn_enter);
+			this->Controls->Add(this->tabControl_Main);
 			this->Name = L"MainPage";
 			this->Text = L"MainPage";
-			this->tabControl1->ResumeLayout(false);
+			this->tabControl_Main->ResumeLayout(false);
 			this->tabMain->ResumeLayout(false);
 			this->tabMain->PerformLayout();
 			this->tabClock->ResumeLayout(false);
@@ -583,6 +642,7 @@ namespace Project1 {
 			this->tabGuest->ResumeLayout(false);
 			this->tabGuest->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -602,6 +662,14 @@ private: System::Void btn_clock_Click(System::Object^  sender, System::EventArgs
 private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 	DateTime dateTime = DateTime::Now;
 	this->txtbox_CurTime->Text = dateTime.ToString();
+}
+private: System::Void btn_enter_Click(System::Object^  sender, System::EventArgs^  e) {
+	this->lb_user->Visible = false;
+	this->txtbox_User->Visible = false;
+	this->txtbox_Pass->Visible = false;
+	this->lb_pass->Visible = false;
+	this->btn_enter->Visible = false;
+	this->tabControl_Main->Visible = true;
 }
 };
 }
