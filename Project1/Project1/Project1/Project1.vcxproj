@@ -89,6 +89,7 @@
     <ClCompile Include="LoginForm1.cpp" />
     <ClCompile Include="MainPage.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="TimePunch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BalanceForm.h">
@@ -101,6 +102,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MainPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TimePunch.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -116,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimePunch.resx">
+      <DependentUpon>TimePunch.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
