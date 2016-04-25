@@ -66,6 +66,8 @@ namespace Project1 {
 	private: System::Windows::Forms::TabPage^  tab_BalanceInfoTab;
 	private: System::Windows::Forms::Button^  btn_Balance_MealPlanChange;
 	private: System::Windows::Forms::Button^  btn_Balance_AddBalance;
+	private: System::Windows::Forms::Timer^  timer1;
+	private: System::ComponentModel::IContainer^  components;
 
 
 
@@ -75,7 +77,7 @@ namespace Project1 {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -84,6 +86,7 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(BalanceForm::typeid));
 			this->lb_BalanceLabel = (gcnew System::Windows::Forms::Label());
 			this->lb_BalanceAmountIndicator = (gcnew System::Windows::Forms::Label());
@@ -99,11 +102,12 @@ namespace Project1 {
 			this->ts_Btn_Logout = (gcnew System::Windows::Forms::ToolStripButton());
 			this->tab_BalanceTabMain = (gcnew System::Windows::Forms::TabControl());
 			this->tab_BalanceInfoTab = (gcnew System::Windows::Forms::TabPage());
-			this->tab_BalanceHistory = (gcnew System::Windows::Forms::TabPage());
+			this->btn_Balance_MealPlanChange = (gcnew System::Windows::Forms::Button());
+			this->btn_Balance_AddBalance = (gcnew System::Windows::Forms::Button());
 			this->lb_MealPlanLabel = (gcnew System::Windows::Forms::Label());
 			this->lb_MealPlanIndicator = (gcnew System::Windows::Forms::Label());
-			this->btn_Balance_AddBalance = (gcnew System::Windows::Forms::Button());
-			this->btn_Balance_MealPlanChange = (gcnew System::Windows::Forms::Button());
+			this->tab_BalanceHistory = (gcnew System::Windows::Forms::TabPage());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->toolStrip1->SuspendLayout();
 			this->tab_BalanceTabMain->SuspendLayout();
 			this->tab_BalanceInfoTab->SuspendLayout();
@@ -234,15 +238,23 @@ namespace Project1 {
 			this->tab_BalanceInfoTab->Text = L"Balance Info";
 			this->tab_BalanceInfoTab->UseVisualStyleBackColor = true;
 			// 
-			// tab_BalanceHistory
+			// btn_Balance_MealPlanChange
 			// 
-			this->tab_BalanceHistory->Location = System::Drawing::Point(4, 22);
-			this->tab_BalanceHistory->Name = L"tab_BalanceHistory";
-			this->tab_BalanceHistory->Padding = System::Windows::Forms::Padding(3);
-			this->tab_BalanceHistory->Size = System::Drawing::Size(527, 344);
-			this->tab_BalanceHistory->TabIndex = 1;
-			this->tab_BalanceHistory->Text = L"History";
-			this->tab_BalanceHistory->UseVisualStyleBackColor = true;
+			this->btn_Balance_MealPlanChange->Location = System::Drawing::Point(122, 65);
+			this->btn_Balance_MealPlanChange->Name = L"btn_Balance_MealPlanChange";
+			this->btn_Balance_MealPlanChange->Size = System::Drawing::Size(75, 23);
+			this->btn_Balance_MealPlanChange->TabIndex = 6;
+			this->btn_Balance_MealPlanChange->Text = L"Change";
+			this->btn_Balance_MealPlanChange->UseVisualStyleBackColor = true;
+			// 
+			// btn_Balance_AddBalance
+			// 
+			this->btn_Balance_AddBalance->Location = System::Drawing::Point(122, 13);
+			this->btn_Balance_AddBalance->Name = L"btn_Balance_AddBalance";
+			this->btn_Balance_AddBalance->Size = System::Drawing::Size(75, 23);
+			this->btn_Balance_AddBalance->TabIndex = 5;
+			this->btn_Balance_AddBalance->Text = L"Add";
+			this->btn_Balance_AddBalance->UseVisualStyleBackColor = true;
 			// 
 			// lb_MealPlanLabel
 			// 
@@ -264,23 +276,19 @@ namespace Project1 {
 			this->lb_MealPlanIndicator->Text = L"label3";
 			this->lb_MealPlanIndicator->Click += gcnew System::EventHandler(this, &BalanceForm::label3_Click);
 			// 
-			// btn_Balance_AddBalance
+			// tab_BalanceHistory
 			// 
-			this->btn_Balance_AddBalance->Location = System::Drawing::Point(122, 13);
-			this->btn_Balance_AddBalance->Name = L"btn_Balance_AddBalance";
-			this->btn_Balance_AddBalance->Size = System::Drawing::Size(75, 23);
-			this->btn_Balance_AddBalance->TabIndex = 5;
-			this->btn_Balance_AddBalance->Text = L"Add";
-			this->btn_Balance_AddBalance->UseVisualStyleBackColor = true;
+			this->tab_BalanceHistory->Location = System::Drawing::Point(4, 22);
+			this->tab_BalanceHistory->Name = L"tab_BalanceHistory";
+			this->tab_BalanceHistory->Padding = System::Windows::Forms::Padding(3);
+			this->tab_BalanceHistory->Size = System::Drawing::Size(527, 344);
+			this->tab_BalanceHistory->TabIndex = 1;
+			this->tab_BalanceHistory->Text = L"History";
+			this->tab_BalanceHistory->UseVisualStyleBackColor = true;
 			// 
-			// btn_Balance_MealPlanChange
+			// timer1
 			// 
-			this->btn_Balance_MealPlanChange->Location = System::Drawing::Point(122, 65);
-			this->btn_Balance_MealPlanChange->Name = L"btn_Balance_MealPlanChange";
-			this->btn_Balance_MealPlanChange->Size = System::Drawing::Size(75, 23);
-			this->btn_Balance_MealPlanChange->TabIndex = 6;
-			this->btn_Balance_MealPlanChange->Text = L"Change";
-			this->btn_Balance_MealPlanChange->UseVisualStyleBackColor = true;
+			this->timer1->Tick += gcnew System::EventHandler(this, &BalanceForm::timer1_Tick);
 			// 
 			// BalanceForm
 			// 
@@ -322,6 +330,8 @@ private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  
 private: System::Void label1_Click_1(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
