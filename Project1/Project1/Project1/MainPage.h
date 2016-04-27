@@ -110,7 +110,8 @@ namespace Project1 {
 	private: System::Windows::Forms::TextBox^  txtbox_SearchInv;
 
 	private: System::Windows::Forms::Button^  btn_AddInv;
-	private: System::Windows::Forms::TextBox^  txtbox_AddInv;
+	private: System::Windows::Forms::TextBox^  txtbox_AddCode;
+
 	private: System::Windows::Forms::Label^  lbl_Qty;
 	private: System::Windows::Forms::TextBox^  txtbox_Quantity;
 	private: System::Windows::Forms::TextBox^  textBox2;
@@ -123,6 +124,10 @@ namespace Project1 {
 	private: System::Windows::Forms::TextBox^  txt_AddUser;
 	private: System::Windows::Forms::Label^  lb_CreatePass;
 	private: System::Windows::Forms::Label^  lb_CreateUser;
+private: System::Windows::Forms::Label^  lb_Keyword;
+private: System::Windows::Forms::Label^  lb_Code;
+private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
+
 
 
 
@@ -221,7 +226,13 @@ namespace Project1 {
 			this->btn_SearchInv = (gcnew System::Windows::Forms::Button());
 			this->txtbox_SearchInv = (gcnew System::Windows::Forms::TextBox());
 			this->btn_AddInv = (gcnew System::Windows::Forms::Button());
-			this->txtbox_AddInv = (gcnew System::Windows::Forms::TextBox());
+			this->txtbox_AddCode = (gcnew System::Windows::Forms::TextBox());
+			this->tabAcc = (gcnew System::Windows::Forms::TabPage());
+			this->btn_AddAcc = (gcnew System::Windows::Forms::Button());
+			this->txtbox_CreatePass = (gcnew System::Windows::Forms::TextBox());
+			this->txt_AddUser = (gcnew System::Windows::Forms::TextBox());
+			this->lb_CreatePass = (gcnew System::Windows::Forms::Label());
+			this->lb_CreateUser = (gcnew System::Windows::Forms::Label());
 			this->tab_Logout = (gcnew System::Windows::Forms::TabPage());
 			this->btn_Logout = (gcnew System::Windows::Forms::Button());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
@@ -230,12 +241,9 @@ namespace Project1 {
 			this->lb_pass = (gcnew System::Windows::Forms::Label());
 			this->lb_user = (gcnew System::Windows::Forms::Label());
 			this->btn_enter = (gcnew System::Windows::Forms::Button());
-			this->tabAcc = (gcnew System::Windows::Forms::TabPage());
-			this->lb_CreateUser = (gcnew System::Windows::Forms::Label());
-			this->lb_CreatePass = (gcnew System::Windows::Forms::Label());
-			this->txt_AddUser = (gcnew System::Windows::Forms::TextBox());
-			this->txtbox_CreatePass = (gcnew System::Windows::Forms::TextBox());
-			this->btn_AddAcc = (gcnew System::Windows::Forms::Button());
+			this->txtbox_AddKeyword = (gcnew System::Windows::Forms::TextBox());
+			this->lb_Code = (gcnew System::Windows::Forms::Label());
+			this->lb_Keyword = (gcnew System::Windows::Forms::Label());
 			this->tabControl_Main->SuspendLayout();
 			this->tabMain->SuspendLayout();
 			this->tabClock->SuspendLayout();
@@ -244,8 +252,8 @@ namespace Project1 {
 			this->tab_BalanceInfoTab->SuspendLayout();
 			this->tabGuest->SuspendLayout();
 			this->tabInventory->SuspendLayout();
-			this->tab_Logout->SuspendLayout();
 			this->tabAcc->SuspendLayout();
+			this->tab_Logout->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// lbl_Welcome
@@ -611,6 +619,9 @@ namespace Project1 {
 			// 
 			// tabInventory
 			// 
+			this->tabInventory->Controls->Add(this->lb_Keyword);
+			this->tabInventory->Controls->Add(this->lb_Code);
+			this->tabInventory->Controls->Add(this->txtbox_AddKeyword);
 			this->tabInventory->Controls->Add(this->btn_RemoveInv);
 			this->tabInventory->Controls->Add(this->textBox3);
 			this->tabInventory->Controls->Add(this->lbl_Qty);
@@ -618,7 +629,7 @@ namespace Project1 {
 			this->tabInventory->Controls->Add(this->btn_SearchInv);
 			this->tabInventory->Controls->Add(this->txtbox_SearchInv);
 			this->tabInventory->Controls->Add(this->btn_AddInv);
-			this->tabInventory->Controls->Add(this->txtbox_AddInv);
+			this->tabInventory->Controls->Add(this->txtbox_AddCode);
 			this->tabInventory->Location = System::Drawing::Point(4, 22);
 			this->tabInventory->Name = L"tabInventory";
 			this->tabInventory->Padding = System::Windows::Forms::Padding(3);
@@ -685,12 +696,68 @@ namespace Project1 {
 			this->btn_AddInv->Text = L"Add ";
 			this->btn_AddInv->UseVisualStyleBackColor = true;
 			// 
-			// txtbox_AddInv
+			// txtbox_AddCode
 			// 
-			this->txtbox_AddInv->Location = System::Drawing::Point(227, 136);
-			this->txtbox_AddInv->Name = L"txtbox_AddInv";
-			this->txtbox_AddInv->Size = System::Drawing::Size(100, 20);
-			this->txtbox_AddInv->TabIndex = 0;
+			this->txtbox_AddCode->Location = System::Drawing::Point(227, 136);
+			this->txtbox_AddCode->Name = L"txtbox_AddCode";
+			this->txtbox_AddCode->Size = System::Drawing::Size(100, 20);
+			this->txtbox_AddCode->TabIndex = 0;
+			// 
+			// tabAcc
+			// 
+			this->tabAcc->Controls->Add(this->btn_AddAcc);
+			this->tabAcc->Controls->Add(this->txtbox_CreatePass);
+			this->tabAcc->Controls->Add(this->txt_AddUser);
+			this->tabAcc->Controls->Add(this->lb_CreatePass);
+			this->tabAcc->Controls->Add(this->lb_CreateUser);
+			this->tabAcc->Location = System::Drawing::Point(4, 22);
+			this->tabAcc->Name = L"tabAcc";
+			this->tabAcc->Padding = System::Windows::Forms::Padding(3);
+			this->tabAcc->Size = System::Drawing::Size(748, 515);
+			this->tabAcc->TabIndex = 6;
+			this->tabAcc->Text = L"Account";
+			this->tabAcc->UseVisualStyleBackColor = true;
+			// 
+			// btn_AddAcc
+			// 
+			this->btn_AddAcc->Location = System::Drawing::Point(333, 273);
+			this->btn_AddAcc->Name = L"btn_AddAcc";
+			this->btn_AddAcc->Size = System::Drawing::Size(75, 23);
+			this->btn_AddAcc->TabIndex = 10;
+			this->btn_AddAcc->Text = L"Add";
+			this->btn_AddAcc->UseVisualStyleBackColor = true;
+			// 
+			// txtbox_CreatePass
+			// 
+			this->txtbox_CreatePass->Location = System::Drawing::Point(333, 219);
+			this->txtbox_CreatePass->Name = L"txtbox_CreatePass";
+			this->txtbox_CreatePass->Size = System::Drawing::Size(100, 20);
+			this->txtbox_CreatePass->TabIndex = 12;
+			// 
+			// txt_AddUser
+			// 
+			this->txt_AddUser->Location = System::Drawing::Point(333, 156);
+			this->txt_AddUser->Name = L"txt_AddUser";
+			this->txt_AddUser->Size = System::Drawing::Size(100, 20);
+			this->txt_AddUser->TabIndex = 10;
+			// 
+			// lb_CreatePass
+			// 
+			this->lb_CreatePass->AutoSize = true;
+			this->lb_CreatePass->Location = System::Drawing::Point(212, 223);
+			this->lb_CreatePass->Name = L"lb_CreatePass";
+			this->lb_CreatePass->Size = System::Drawing::Size(90, 13);
+			this->lb_CreatePass->TabIndex = 11;
+			this->lb_CreatePass->Text = L"Create Password:";
+			// 
+			// lb_CreateUser
+			// 
+			this->lb_CreateUser->AutoSize = true;
+			this->lb_CreateUser->Location = System::Drawing::Point(212, 159);
+			this->lb_CreateUser->Name = L"lb_CreateUser";
+			this->lb_CreateUser->Size = System::Drawing::Size(92, 13);
+			this->lb_CreateUser->TabIndex = 10;
+			this->lb_CreateUser->Text = L"Create Username:";
 			// 
 			// tab_Logout
 			// 
@@ -759,61 +826,30 @@ namespace Project1 {
 			this->btn_enter->UseVisualStyleBackColor = true;
 			this->btn_enter->Click += gcnew System::EventHandler(this, &MainPage::btn_enter_Click_1);
 			// 
-			// tabAcc
+			// txtbox_AddKeyword
 			// 
-			this->tabAcc->Controls->Add(this->btn_AddAcc);
-			this->tabAcc->Controls->Add(this->txtbox_CreatePass);
-			this->tabAcc->Controls->Add(this->txt_AddUser);
-			this->tabAcc->Controls->Add(this->lb_CreatePass);
-			this->tabAcc->Controls->Add(this->lb_CreateUser);
-			this->tabAcc->Location = System::Drawing::Point(4, 22);
-			this->tabAcc->Name = L"tabAcc";
-			this->tabAcc->Padding = System::Windows::Forms::Padding(3);
-			this->tabAcc->Size = System::Drawing::Size(748, 515);
-			this->tabAcc->TabIndex = 6;
-			this->tabAcc->Text = L"Account";
-			this->tabAcc->UseVisualStyleBackColor = true;
+			this->txtbox_AddKeyword->Location = System::Drawing::Point(108, 136);
+			this->txtbox_AddKeyword->Name = L"txtbox_AddKeyword";
+			this->txtbox_AddKeyword->Size = System::Drawing::Size(100, 20);
+			this->txtbox_AddKeyword->TabIndex = 8;
 			// 
-			// lb_CreateUser
+			// lb_Code
 			// 
-			this->lb_CreateUser->AutoSize = true;
-			this->lb_CreateUser->Location = System::Drawing::Point(212, 159);
-			this->lb_CreateUser->Name = L"lb_CreateUser";
-			this->lb_CreateUser->Size = System::Drawing::Size(92, 13);
-			this->lb_CreateUser->TabIndex = 10;
-			this->lb_CreateUser->Text = L"Create Username:";
+			this->lb_Code->AutoSize = true;
+			this->lb_Code->Location = System::Drawing::Point(257, 108);
+			this->lb_Code->Name = L"lb_Code";
+			this->lb_Code->Size = System::Drawing::Size(32, 13);
+			this->lb_Code->TabIndex = 9;
+			this->lb_Code->Text = L"Code";
 			// 
-			// lb_CreatePass
+			// lb_Keyword
 			// 
-			this->lb_CreatePass->AutoSize = true;
-			this->lb_CreatePass->Location = System::Drawing::Point(212, 223);
-			this->lb_CreatePass->Name = L"lb_CreatePass";
-			this->lb_CreatePass->Size = System::Drawing::Size(90, 13);
-			this->lb_CreatePass->TabIndex = 11;
-			this->lb_CreatePass->Text = L"Create Password:";
-			// 
-			// txt_AddUser
-			// 
-			this->txt_AddUser->Location = System::Drawing::Point(333, 156);
-			this->txt_AddUser->Name = L"txt_AddUser";
-			this->txt_AddUser->Size = System::Drawing::Size(100, 20);
-			this->txt_AddUser->TabIndex = 10;
-			// 
-			// txtbox_CreatePass
-			// 
-			this->txtbox_CreatePass->Location = System::Drawing::Point(333, 219);
-			this->txtbox_CreatePass->Name = L"txtbox_CreatePass";
-			this->txtbox_CreatePass->Size = System::Drawing::Size(100, 20);
-			this->txtbox_CreatePass->TabIndex = 12;
-			// 
-			// btn_AddAcc
-			// 
-			this->btn_AddAcc->Location = System::Drawing::Point(333, 273);
-			this->btn_AddAcc->Name = L"btn_AddAcc";
-			this->btn_AddAcc->Size = System::Drawing::Size(75, 23);
-			this->btn_AddAcc->TabIndex = 10;
-			this->btn_AddAcc->Text = L"Add";
-			this->btn_AddAcc->UseVisualStyleBackColor = true;
+			this->lb_Keyword->AutoSize = true;
+			this->lb_Keyword->Location = System::Drawing::Point(131, 108);
+			this->lb_Keyword->Name = L"lb_Keyword";
+			this->lb_Keyword->Size = System::Drawing::Size(48, 13);
+			this->lb_Keyword->TabIndex = 10;
+			this->lb_Keyword->Text = L"Keyword";
 			// 
 			// MainPage
 			// 
@@ -841,9 +877,9 @@ namespace Project1 {
 			this->tabGuest->PerformLayout();
 			this->tabInventory->ResumeLayout(false);
 			this->tabInventory->PerformLayout();
-			this->tab_Logout->ResumeLayout(false);
 			this->tabAcc->ResumeLayout(false);
 			this->tabAcc->PerformLayout();
+			this->tab_Logout->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -903,9 +939,11 @@ private: System::Void btn_Logout_Click(System::Object^  sender, System::EventArg
 private: System::Void btn_enter_Click_1(System::Object^  sender, System::EventArgs^  e) {
 	//Checks username and password
 	//Then opens up program
+	//DB^ db = gcnew DB;
 	String^ username = txtbox_User->Text;
 	String^ password = txtbox_Pass->Text;
-	if (password == "pass"&&username == "user")
+	//bool result = db->logUserIn(username, password);
+	if (password == "pass"&&username == "user"/*||result*/)
 	{
 		txtbox_Pass->Visible = false;
 		txtbox_User->Visible = false;

@@ -93,16 +93,10 @@
     <ClInclude Include="MainPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="TimePunch.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TimePunch.resx">
-      <DependentUpon>TimePunch.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
