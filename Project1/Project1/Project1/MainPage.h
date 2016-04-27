@@ -1,8 +1,8 @@
 #pragma once
 #include "BalanceForm.h"
+//#include "DB.h"
 
-
-ref class LoginForm1;
+ref class Myform;
 
 namespace Project1 {
 
@@ -95,11 +95,24 @@ namespace Project1 {
 
 	private: System::Windows::Forms::TextBox^  txt_PaymentAmount;
 	private: System::Windows::Forms::Label^  label6;
+
+
+
+
+
+	private: System::Windows::Forms::TabPage^  tab_Logout;
+	private: System::Windows::Forms::Button^  btn_Logout;
 	private: System::Windows::Forms::TextBox^  txtbox_Pass;
 	private: System::Windows::Forms::TextBox^  txtbox_User;
 	private: System::Windows::Forms::Label^  lb_pass;
 	private: System::Windows::Forms::Label^  lb_user;
 	private: System::Windows::Forms::Button^  btn_enter;
+
+
+
+
+
+
 	private: System::ComponentModel::IContainer^  components;
 
 
@@ -183,6 +196,8 @@ namespace Project1 {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button_Submit = (gcnew System::Windows::Forms::Button());
 			this->tabInventory = (gcnew System::Windows::Forms::TabPage());
+			this->tab_Logout = (gcnew System::Windows::Forms::TabPage());
+			this->btn_Logout = (gcnew System::Windows::Forms::Button());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->txtbox_Pass = (gcnew System::Windows::Forms::TextBox());
 			this->txtbox_User = (gcnew System::Windows::Forms::TextBox());
@@ -196,6 +211,7 @@ namespace Project1 {
 			this->tab_BalanceTabMain->SuspendLayout();
 			this->tab_BalanceInfoTab->SuspendLayout();
 			this->tabGuest->SuspendLayout();
+			this->tab_Logout->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// lbl_Welcome
@@ -214,6 +230,7 @@ namespace Project1 {
 			this->tabControl_Main->Controls->Add(this->tabStudent);
 			this->tabControl_Main->Controls->Add(this->tabGuest);
 			this->tabControl_Main->Controls->Add(this->tabInventory);
+			this->tabControl_Main->Controls->Add(this->tab_Logout);
 			this->tabControl_Main->Location = System::Drawing::Point(12, 12);
 			this->tabControl_Main->Name = L"tabControl_Main";
 			this->tabControl_Main->SelectedIndex = 0;
@@ -571,20 +588,41 @@ namespace Project1 {
 			this->tabInventory->Text = L"Inventory";
 			this->tabInventory->UseVisualStyleBackColor = true;
 			// 
+			// tab_Logout
+			// 
+			this->tab_Logout->Controls->Add(this->btn_Logout);
+			this->tab_Logout->Location = System::Drawing::Point(4, 22);
+			this->tab_Logout->Name = L"tab_Logout";
+			this->tab_Logout->Padding = System::Windows::Forms::Padding(3);
+			this->tab_Logout->Size = System::Drawing::Size(748, 515);
+			this->tab_Logout->TabIndex = 5;
+			this->tab_Logout->Text = L"Logout";
+			this->tab_Logout->UseVisualStyleBackColor = true;
+			// 
+			// btn_Logout
+			// 
+			this->btn_Logout->Location = System::Drawing::Point(231, 183);
+			this->btn_Logout->Name = L"btn_Logout";
+			this->btn_Logout->Size = System::Drawing::Size(274, 165);
+			this->btn_Logout->TabIndex = 0;
+			this->btn_Logout->Text = L"Logout";
+			this->btn_Logout->UseVisualStyleBackColor = true;
+			this->btn_Logout->Click += gcnew System::EventHandler(this, &MainPage::btn_Logout_Click);
+			// 
 			// timer1
 			// 
 			this->timer1->Tick += gcnew System::EventHandler(this, &MainPage::timer1_Tick);
 			// 
 			// txtbox_Pass
 			// 
-			this->txtbox_Pass->Location = System::Drawing::Point(213, 217);
+			this->txtbox_Pass->Location = System::Drawing::Point(349, 250);
 			this->txtbox_Pass->Name = L"txtbox_Pass";
 			this->txtbox_Pass->Size = System::Drawing::Size(100, 20);
 			this->txtbox_Pass->TabIndex = 9;
 			// 
 			// txtbox_User
 			// 
-			this->txtbox_User->Location = System::Drawing::Point(213, 157);
+			this->txtbox_User->Location = System::Drawing::Point(349, 190);
 			this->txtbox_User->Name = L"txtbox_User";
 			this->txtbox_User->Size = System::Drawing::Size(100, 20);
 			this->txtbox_User->TabIndex = 8;
@@ -592,7 +630,7 @@ namespace Project1 {
 			// lb_pass
 			// 
 			this->lb_pass->AutoSize = true;
-			this->lb_pass->Location = System::Drawing::Point(128, 220);
+			this->lb_pass->Location = System::Drawing::Point(264, 253);
 			this->lb_pass->Name = L"lb_pass";
 			this->lb_pass->Size = System::Drawing::Size(56, 13);
 			this->lb_pass->TabIndex = 7;
@@ -601,7 +639,7 @@ namespace Project1 {
 			// lb_user
 			// 
 			this->lb_user->AutoSize = true;
-			this->lb_user->Location = System::Drawing::Point(126, 160);
+			this->lb_user->Location = System::Drawing::Point(262, 193);
 			this->lb_user->Name = L"lb_user";
 			this->lb_user->Size = System::Drawing::Size(58, 13);
 			this->lb_user->TabIndex = 6;
@@ -609,13 +647,13 @@ namespace Project1 {
 			// 
 			// btn_enter
 			// 
-			this->btn_enter->Location = System::Drawing::Point(223, 276);
+			this->btn_enter->Location = System::Drawing::Point(359, 309);
 			this->btn_enter->Name = L"btn_enter";
 			this->btn_enter->Size = System::Drawing::Size(75, 23);
 			this->btn_enter->TabIndex = 5;
 			this->btn_enter->Text = L"Enter";
 			this->btn_enter->UseVisualStyleBackColor = true;
-			this->btn_enter->Click += gcnew System::EventHandler(this, &MainPage::btn_enter_Click);
+			this->btn_enter->Click += gcnew System::EventHandler(this, &MainPage::btn_enter_Click_1);
 			// 
 			// MainPage
 			// 
@@ -641,6 +679,7 @@ namespace Project1 {
 			this->tab_BalanceInfoTab->PerformLayout();
 			this->tabGuest->ResumeLayout(false);
 			this->tabGuest->PerformLayout();
+			this->tab_Logout->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -668,13 +707,40 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 	this->txtbox_CurTime->Text = dateTime.ToString();
 }
 private: System::Void btn_enter_Click(System::Object^  sender, System::EventArgs^  e) {
-	this->lb_user->Visible = false;
-	this->txtbox_User->Visible = false;
-	this->txtbox_Pass->Visible = false;
-	this->lb_pass->Visible = false;
-	this->btn_enter->Visible = false;
-	this->tabControl_Main->Visible = true;
+	
+
+	/*DB^ db = gcnew DB;
+	String^ username = txtbox_User->Text;
+	String^ password = txtbox_Pass->Text;*/
+
+	//bool result = db->logUserIn(username, password);
+
+	////if (result)
+	//{
+	//	MessageBox::Show("Success");
+	//}
 }
 
+private: System::Void btn_Logout_Click(System::Object^  sender, System::EventArgs^  e) {
+	txtbox_Pass->Visible = true;
+	txtbox_User->Visible = true;
+	btn_enter->Visible = true;
+	lb_user->Visible = true;
+	lb_pass->Visible = true;
+	tabControl_Main->Visible = false;
+}
+
+
+
+
+
+private: System::Void btn_enter_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	txtbox_Pass->Visible = false;
+	txtbox_User->Visible = false;
+	btn_enter->Visible = false;
+	lb_user->Visible = false;
+	lb_pass->Visible = false;
+	tabControl_Main->Visible = true;
+}
 };
 }
