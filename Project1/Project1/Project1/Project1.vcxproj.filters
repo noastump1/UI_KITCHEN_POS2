@@ -18,13 +18,7 @@
     <ClCompile Include="MyForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BalanceForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MainPage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LoginForm1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TimePunch.cpp">
@@ -32,16 +26,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LoginForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BalanceForm.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="MainPage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LoginForm1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TimePunch.h">
@@ -59,6 +44,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm1.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimePunch.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

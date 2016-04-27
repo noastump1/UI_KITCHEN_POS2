@@ -1,5 +1,4 @@
 #pragma once
-#include "BalanceForm.h"
 //#include "DB.h"
 
 ref class Myform;
@@ -690,9 +689,6 @@ namespace Project1 {
 		//	Application app = Application::Exit();
 		//}
 	private: System::Void toolStripButton2_Click(System::Object^  sender, System::EventArgs^  e) {
-		this->Hide();
-		BalanceForm^ bF = gcnew BalanceForm();
-		bF->ShowDialog();
 	}
 private: System::Void ts_Btn_Logout_Click(System::Object^  sender, System::EventArgs^  e) {
 			//LoginForm1^ test = gcnew LoginForm1();
@@ -709,9 +705,9 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 private: System::Void btn_enter_Click(System::Object^  sender, System::EventArgs^  e) {
 	
 
-	/*DB^ db = gcnew DB;
+	//DB^ db = gcnew DB;
 	String^ username = txtbox_User->Text;
-	String^ password = txtbox_Pass->Text;*/
+	String^ password = txtbox_Pass->Text;
 
 	//bool result = db->logUserIn(username, password);
 
@@ -735,12 +731,22 @@ private: System::Void btn_Logout_Click(System::Object^  sender, System::EventArg
 
 
 private: System::Void btn_enter_Click_1(System::Object^  sender, System::EventArgs^  e) {
-	txtbox_Pass->Visible = false;
-	txtbox_User->Visible = false;
-	btn_enter->Visible = false;
-	lb_user->Visible = false;
-	lb_pass->Visible = false;
-	tabControl_Main->Visible = true;
+	String^ username = txtbox_User->Text;
+	String^ password = txtbox_Pass->Text;
+	if (password == "pass"&&username == "user")
+	{
+		txtbox_Pass->Visible = false;
+		txtbox_User->Visible = false;
+		btn_enter->Visible = false;
+		lb_user->Visible = false;
+		lb_pass->Visible = false;
+		tabControl_Main->Visible = true;
+	}
+	else
+	{
+		MessageBox::Show("Wrong username or password. Hint username is user and password is pass.");
+	}
+
 }
 };
 }

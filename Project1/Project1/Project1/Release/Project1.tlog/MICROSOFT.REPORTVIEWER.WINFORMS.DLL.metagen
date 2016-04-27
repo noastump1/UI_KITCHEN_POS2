@@ -47,7 +47,7 @@ Class AssemblyVersionInfo: AutoLayout, AnsiClass, Class, Abstract, Sealed, Befor
     System.String VersionString = 11.0.0.0 : Public, Static, Literal, HasDefault
     Int32 MajorVersion = 11 : Public, Static, Literal, HasDefault
     Int32 MinorVersion = 0 : Public, Static, Literal, HasDefault
-    Int32 BuildVersion = 3366 : Public, Static, Literal, HasDefault
+    Int32 BuildVersion = 3442 : Public, Static, Literal, HasDefault
     Int32 SPLevel = 1 : Public, Static, Literal, HasDefault
     System.String ProductVersionString = 11.0 : Public, Static, Literal, HasDefault
     System.String ProductNameString = Microsoft SQL Server : Public, Static, Literal, HasDefault

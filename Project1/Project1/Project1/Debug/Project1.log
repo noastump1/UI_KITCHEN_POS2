@@ -1,22 +1,8 @@
-﻿Build started 4/26/2016 8:19:05 PM.
+﻿Build started 4/26/2016 8:32:56 PM.
      1>Project "E:\programming\C++2\KitchenPOS\Project1\Project1\Project1\Project1.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"c:\Program Files (x86)\Microsoft Visual Studio 10.0\ReportViewer\Microsoft.ReportViewer.Common.dll" /FU"c:\Program Files (x86)\Microsoft Visual Studio 10.0\ReportViewer\Microsoft.ReportViewer.WinForms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Core.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Web.Services.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib LoginForm1.cpp MainPage.cpp MyForm.cpp
-         LoginForm1.cpp
-         MainPage.cpp
-         MyForm.cpp
-     1>MyForm.cpp(8): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
-         Generating Code...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\programming\C++2\KitchenPOS\Project1\Project1\Debug\Project1.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\Project1.BalanceForm.resources /ASSEMBLYRESOURCE:Debug\Project1.LoginForm.resources /ASSEMBLYRESOURCE:Debug\Project1.LoginForm1.resources /ASSEMBLYRESOURCE:Debug\Project1.MainPage.resources /ASSEMBLYRESOURCE:Debug\Project1.TimePunch.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\programming\C++2\KitchenPOS\Project1\Project1\Debug\Project1.pdb" /ASSEMBLYDEBUG /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\BalanceForm.obj
-         Debug\LoginForm1.obj
-         Debug\MainPage.obj
-         Debug\MyForm.obj
-         Debug\TimePunch.obj
-         "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
-         Project1.vcxproj -> E:\programming\C++2\KitchenPOS\Project1\Project1\Debug\Project1.exe
-     1>Done Building Project "E:\programming\C++2\KitchenPOS\Project1\Project1\Project1\Project1.vcxproj" (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(341,5): error MSB6003: The specified task executable "CL.exe" could not be run. The process cannot access the file 'E:\PROGRAMMING\C++2\KITCHENPOS\PROJECT1\PROJECT1\PROJECT1\DEBUG\MYFORM.OBJ' because it is being used by another process.
+     1>Done Building Project "E:\programming\C++2\KitchenPOS\Project1\Project1\Project1\Project1.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:01.43
+Time Elapsed 00:00:00.05
