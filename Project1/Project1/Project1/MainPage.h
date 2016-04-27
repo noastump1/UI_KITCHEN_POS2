@@ -65,9 +65,9 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  btn_Balance_MealPlanChange;
 	private: System::Windows::Forms::Button^  btn_Balance_AddBalance;
 	private: System::Windows::Forms::Label^  lb_MealPlanLabel;
-	private: System::Windows::Forms::Label^  lb_MealPlanIndicator;
+
 	private: System::Windows::Forms::Label^  lb_BalanceLabel;
-	private: System::Windows::Forms::Label^  lb_BalanceAmountIndicator;
+
 	private: System::Windows::Forms::TabPage^  tab_BalanceHistory;
 	private: System::Windows::Forms::TabPage^  tabGuest;
 	private: System::Windows::Forms::TabPage^  tabInventory;
@@ -106,6 +106,25 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^  lb_pass;
 	private: System::Windows::Forms::Label^  lb_user;
 	private: System::Windows::Forms::Button^  btn_enter;
+	private: System::Windows::Forms::Button^  btn_SearchInv;
+	private: System::Windows::Forms::TextBox^  txtbox_SearchInv;
+
+	private: System::Windows::Forms::Button^  btn_AddInv;
+	private: System::Windows::Forms::TextBox^  txtbox_AddInv;
+	private: System::Windows::Forms::Label^  lbl_Qty;
+	private: System::Windows::Forms::TextBox^  txtbox_Quantity;
+	private: System::Windows::Forms::TextBox^  textBox2;
+	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::Button^  btn_RemoveInv;
+	private: System::Windows::Forms::TextBox^  textBox3;
+	private: System::Windows::Forms::TabPage^  tabAcc;
+	private: System::Windows::Forms::Button^  btn_AddAcc;
+	private: System::Windows::Forms::TextBox^  txtbox_CreatePass;
+	private: System::Windows::Forms::TextBox^  txt_AddUser;
+	private: System::Windows::Forms::Label^  lb_CreatePass;
+	private: System::Windows::Forms::Label^  lb_CreateUser;
+
+
 
 
 
@@ -172,12 +191,12 @@ namespace Project1 {
 			this->tabStudent = (gcnew System::Windows::Forms::TabPage());
 			this->tab_BalanceTabMain = (gcnew System::Windows::Forms::TabControl());
 			this->tab_BalanceInfoTab = (gcnew System::Windows::Forms::TabPage());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->btn_Balance_MealPlanChange = (gcnew System::Windows::Forms::Button());
 			this->btn_Balance_AddBalance = (gcnew System::Windows::Forms::Button());
 			this->lb_MealPlanLabel = (gcnew System::Windows::Forms::Label());
-			this->lb_MealPlanIndicator = (gcnew System::Windows::Forms::Label());
 			this->lb_BalanceLabel = (gcnew System::Windows::Forms::Label());
-			this->lb_BalanceAmountIndicator = (gcnew System::Windows::Forms::Label());
 			this->tab_BalanceHistory = (gcnew System::Windows::Forms::TabPage());
 			this->tabGuest = (gcnew System::Windows::Forms::TabPage());
 			this->txt_PaymentAmount = (gcnew System::Windows::Forms::TextBox());
@@ -195,6 +214,14 @@ namespace Project1 {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button_Submit = (gcnew System::Windows::Forms::Button());
 			this->tabInventory = (gcnew System::Windows::Forms::TabPage());
+			this->btn_RemoveInv = (gcnew System::Windows::Forms::Button());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->lbl_Qty = (gcnew System::Windows::Forms::Label());
+			this->txtbox_Quantity = (gcnew System::Windows::Forms::TextBox());
+			this->btn_SearchInv = (gcnew System::Windows::Forms::Button());
+			this->txtbox_SearchInv = (gcnew System::Windows::Forms::TextBox());
+			this->btn_AddInv = (gcnew System::Windows::Forms::Button());
+			this->txtbox_AddInv = (gcnew System::Windows::Forms::TextBox());
 			this->tab_Logout = (gcnew System::Windows::Forms::TabPage());
 			this->btn_Logout = (gcnew System::Windows::Forms::Button());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
@@ -203,6 +230,12 @@ namespace Project1 {
 			this->lb_pass = (gcnew System::Windows::Forms::Label());
 			this->lb_user = (gcnew System::Windows::Forms::Label());
 			this->btn_enter = (gcnew System::Windows::Forms::Button());
+			this->tabAcc = (gcnew System::Windows::Forms::TabPage());
+			this->lb_CreateUser = (gcnew System::Windows::Forms::Label());
+			this->lb_CreatePass = (gcnew System::Windows::Forms::Label());
+			this->txt_AddUser = (gcnew System::Windows::Forms::TextBox());
+			this->txtbox_CreatePass = (gcnew System::Windows::Forms::TextBox());
+			this->btn_AddAcc = (gcnew System::Windows::Forms::Button());
 			this->tabControl_Main->SuspendLayout();
 			this->tabMain->SuspendLayout();
 			this->tabClock->SuspendLayout();
@@ -210,7 +243,9 @@ namespace Project1 {
 			this->tab_BalanceTabMain->SuspendLayout();
 			this->tab_BalanceInfoTab->SuspendLayout();
 			this->tabGuest->SuspendLayout();
+			this->tabInventory->SuspendLayout();
 			this->tab_Logout->SuspendLayout();
+			this->tabAcc->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// lbl_Welcome
@@ -229,6 +264,7 @@ namespace Project1 {
 			this->tabControl_Main->Controls->Add(this->tabStudent);
 			this->tabControl_Main->Controls->Add(this->tabGuest);
 			this->tabControl_Main->Controls->Add(this->tabInventory);
+			this->tabControl_Main->Controls->Add(this->tabAcc);
 			this->tabControl_Main->Controls->Add(this->tab_Logout);
 			this->tabControl_Main->Location = System::Drawing::Point(12, 12);
 			this->tabControl_Main->Name = L"tabControl_Main";
@@ -349,12 +385,12 @@ namespace Project1 {
 			// 
 			// tab_BalanceInfoTab
 			// 
+			this->tab_BalanceInfoTab->Controls->Add(this->textBox2);
+			this->tab_BalanceInfoTab->Controls->Add(this->textBox1);
 			this->tab_BalanceInfoTab->Controls->Add(this->btn_Balance_MealPlanChange);
 			this->tab_BalanceInfoTab->Controls->Add(this->btn_Balance_AddBalance);
 			this->tab_BalanceInfoTab->Controls->Add(this->lb_MealPlanLabel);
-			this->tab_BalanceInfoTab->Controls->Add(this->lb_MealPlanIndicator);
 			this->tab_BalanceInfoTab->Controls->Add(this->lb_BalanceLabel);
-			this->tab_BalanceInfoTab->Controls->Add(this->lb_BalanceAmountIndicator);
 			this->tab_BalanceInfoTab->Location = System::Drawing::Point(4, 22);
 			this->tab_BalanceInfoTab->Name = L"tab_BalanceInfoTab";
 			this->tab_BalanceInfoTab->Padding = System::Windows::Forms::Padding(3);
@@ -363,9 +399,23 @@ namespace Project1 {
 			this->tab_BalanceInfoTab->Text = L"Balance Info";
 			this->tab_BalanceInfoTab->UseVisualStyleBackColor = true;
 			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(63, 70);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(100, 20);
+			this->textBox2->TabIndex = 7;
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(63, 18);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(100, 20);
+			this->textBox1->TabIndex = 6;
+			// 
 			// btn_Balance_MealPlanChange
 			// 
-			this->btn_Balance_MealPlanChange->Location = System::Drawing::Point(122, 65);
+			this->btn_Balance_MealPlanChange->Location = System::Drawing::Point(177, 65);
 			this->btn_Balance_MealPlanChange->Name = L"btn_Balance_MealPlanChange";
 			this->btn_Balance_MealPlanChange->Size = System::Drawing::Size(75, 23);
 			this->btn_Balance_MealPlanChange->TabIndex = 6;
@@ -374,7 +424,7 @@ namespace Project1 {
 			// 
 			// btn_Balance_AddBalance
 			// 
-			this->btn_Balance_AddBalance->Location = System::Drawing::Point(122, 13);
+			this->btn_Balance_AddBalance->Location = System::Drawing::Point(169, 18);
 			this->btn_Balance_AddBalance->Name = L"btn_Balance_AddBalance";
 			this->btn_Balance_AddBalance->Size = System::Drawing::Size(75, 23);
 			this->btn_Balance_AddBalance->TabIndex = 5;
@@ -390,15 +440,6 @@ namespace Project1 {
 			this->lb_MealPlanLabel->TabIndex = 3;
 			this->lb_MealPlanLabel->Text = L"Meal Plan:";
 			// 
-			// lb_MealPlanIndicator
-			// 
-			this->lb_MealPlanIndicator->AutoSize = true;
-			this->lb_MealPlanIndicator->Location = System::Drawing::Point(71, 70);
-			this->lb_MealPlanIndicator->Name = L"lb_MealPlanIndicator";
-			this->lb_MealPlanIndicator->Size = System::Drawing::Size(35, 13);
-			this->lb_MealPlanIndicator->TabIndex = 4;
-			this->lb_MealPlanIndicator->Text = L"label3";
-			// 
 			// lb_BalanceLabel
 			// 
 			this->lb_BalanceLabel->AutoSize = true;
@@ -407,15 +448,6 @@ namespace Project1 {
 			this->lb_BalanceLabel->Size = System::Drawing::Size(49, 13);
 			this->lb_BalanceLabel->TabIndex = 1;
 			this->lb_BalanceLabel->Text = L"Balance:";
-			// 
-			// lb_BalanceAmountIndicator
-			// 
-			this->lb_BalanceAmountIndicator->AutoSize = true;
-			this->lb_BalanceAmountIndicator->Location = System::Drawing::Point(71, 18);
-			this->lb_BalanceAmountIndicator->Name = L"lb_BalanceAmountIndicator";
-			this->lb_BalanceAmountIndicator->Size = System::Drawing::Size(35, 13);
-			this->lb_BalanceAmountIndicator->TabIndex = 2;
-			this->lb_BalanceAmountIndicator->Text = L"label1";
 			// 
 			// tab_BalanceHistory
 			// 
@@ -579,6 +611,14 @@ namespace Project1 {
 			// 
 			// tabInventory
 			// 
+			this->tabInventory->Controls->Add(this->btn_RemoveInv);
+			this->tabInventory->Controls->Add(this->textBox3);
+			this->tabInventory->Controls->Add(this->lbl_Qty);
+			this->tabInventory->Controls->Add(this->txtbox_Quantity);
+			this->tabInventory->Controls->Add(this->btn_SearchInv);
+			this->tabInventory->Controls->Add(this->txtbox_SearchInv);
+			this->tabInventory->Controls->Add(this->btn_AddInv);
+			this->tabInventory->Controls->Add(this->txtbox_AddInv);
 			this->tabInventory->Location = System::Drawing::Point(4, 22);
 			this->tabInventory->Name = L"tabInventory";
 			this->tabInventory->Padding = System::Windows::Forms::Padding(3);
@@ -586,6 +626,71 @@ namespace Project1 {
 			this->tabInventory->TabIndex = 4;
 			this->tabInventory->Text = L"Inventory";
 			this->tabInventory->UseVisualStyleBackColor = true;
+			// 
+			// btn_RemoveInv
+			// 
+			this->btn_RemoveInv->Location = System::Drawing::Point(358, 249);
+			this->btn_RemoveInv->Name = L"btn_RemoveInv";
+			this->btn_RemoveInv->Size = System::Drawing::Size(75, 23);
+			this->btn_RemoveInv->TabIndex = 7;
+			this->btn_RemoveInv->Text = L"Remove";
+			this->btn_RemoveInv->UseVisualStyleBackColor = true;
+			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(227, 252);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(100, 20);
+			this->textBox3->TabIndex = 6;
+			// 
+			// lbl_Qty
+			// 
+			this->lbl_Qty->AutoSize = true;
+			this->lbl_Qty->Location = System::Drawing::Point(246, 285);
+			this->lbl_Qty->Name = L"lbl_Qty";
+			this->lbl_Qty->Size = System::Drawing::Size(46, 13);
+			this->lbl_Qty->TabIndex = 5;
+			this->lbl_Qty->Text = L"Quantity";
+			// 
+			// txtbox_Quantity
+			// 
+			this->txtbox_Quantity->Location = System::Drawing::Point(318, 282);
+			this->txtbox_Quantity->Name = L"txtbox_Quantity";
+			this->txtbox_Quantity->ReadOnly = true;
+			this->txtbox_Quantity->Size = System::Drawing::Size(100, 20);
+			this->txtbox_Quantity->TabIndex = 4;
+			// 
+			// btn_SearchInv
+			// 
+			this->btn_SearchInv->Location = System::Drawing::Point(358, 187);
+			this->btn_SearchInv->Name = L"btn_SearchInv";
+			this->btn_SearchInv->Size = System::Drawing::Size(75, 23);
+			this->btn_SearchInv->TabIndex = 3;
+			this->btn_SearchInv->Text = L"Search";
+			this->btn_SearchInv->UseVisualStyleBackColor = true;
+			// 
+			// txtbox_SearchInv
+			// 
+			this->txtbox_SearchInv->Location = System::Drawing::Point(227, 190);
+			this->txtbox_SearchInv->Name = L"txtbox_SearchInv";
+			this->txtbox_SearchInv->Size = System::Drawing::Size(100, 20);
+			this->txtbox_SearchInv->TabIndex = 2;
+			// 
+			// btn_AddInv
+			// 
+			this->btn_AddInv->Location = System::Drawing::Point(358, 133);
+			this->btn_AddInv->Name = L"btn_AddInv";
+			this->btn_AddInv->Size = System::Drawing::Size(75, 23);
+			this->btn_AddInv->TabIndex = 1;
+			this->btn_AddInv->Text = L"Add ";
+			this->btn_AddInv->UseVisualStyleBackColor = true;
+			// 
+			// txtbox_AddInv
+			// 
+			this->txtbox_AddInv->Location = System::Drawing::Point(227, 136);
+			this->txtbox_AddInv->Name = L"txtbox_AddInv";
+			this->txtbox_AddInv->Size = System::Drawing::Size(100, 20);
+			this->txtbox_AddInv->TabIndex = 0;
 			// 
 			// tab_Logout
 			// 
@@ -646,13 +751,69 @@ namespace Project1 {
 			// 
 			// btn_enter
 			// 
-			this->btn_enter->Location = System::Drawing::Point(359, 309);
+			this->btn_enter->Location = System::Drawing::Point(361, 306);
 			this->btn_enter->Name = L"btn_enter";
 			this->btn_enter->Size = System::Drawing::Size(75, 23);
 			this->btn_enter->TabIndex = 5;
 			this->btn_enter->Text = L"Enter";
 			this->btn_enter->UseVisualStyleBackColor = true;
 			this->btn_enter->Click += gcnew System::EventHandler(this, &MainPage::btn_enter_Click_1);
+			// 
+			// tabAcc
+			// 
+			this->tabAcc->Controls->Add(this->btn_AddAcc);
+			this->tabAcc->Controls->Add(this->txtbox_CreatePass);
+			this->tabAcc->Controls->Add(this->txt_AddUser);
+			this->tabAcc->Controls->Add(this->lb_CreatePass);
+			this->tabAcc->Controls->Add(this->lb_CreateUser);
+			this->tabAcc->Location = System::Drawing::Point(4, 22);
+			this->tabAcc->Name = L"tabAcc";
+			this->tabAcc->Padding = System::Windows::Forms::Padding(3);
+			this->tabAcc->Size = System::Drawing::Size(748, 515);
+			this->tabAcc->TabIndex = 6;
+			this->tabAcc->Text = L"Account";
+			this->tabAcc->UseVisualStyleBackColor = true;
+			// 
+			// lb_CreateUser
+			// 
+			this->lb_CreateUser->AutoSize = true;
+			this->lb_CreateUser->Location = System::Drawing::Point(212, 159);
+			this->lb_CreateUser->Name = L"lb_CreateUser";
+			this->lb_CreateUser->Size = System::Drawing::Size(92, 13);
+			this->lb_CreateUser->TabIndex = 10;
+			this->lb_CreateUser->Text = L"Create Username:";
+			// 
+			// lb_CreatePass
+			// 
+			this->lb_CreatePass->AutoSize = true;
+			this->lb_CreatePass->Location = System::Drawing::Point(212, 223);
+			this->lb_CreatePass->Name = L"lb_CreatePass";
+			this->lb_CreatePass->Size = System::Drawing::Size(90, 13);
+			this->lb_CreatePass->TabIndex = 11;
+			this->lb_CreatePass->Text = L"Create Password:";
+			// 
+			// txt_AddUser
+			// 
+			this->txt_AddUser->Location = System::Drawing::Point(333, 156);
+			this->txt_AddUser->Name = L"txt_AddUser";
+			this->txt_AddUser->Size = System::Drawing::Size(100, 20);
+			this->txt_AddUser->TabIndex = 10;
+			// 
+			// txtbox_CreatePass
+			// 
+			this->txtbox_CreatePass->Location = System::Drawing::Point(333, 219);
+			this->txtbox_CreatePass->Name = L"txtbox_CreatePass";
+			this->txtbox_CreatePass->Size = System::Drawing::Size(100, 20);
+			this->txtbox_CreatePass->TabIndex = 12;
+			// 
+			// btn_AddAcc
+			// 
+			this->btn_AddAcc->Location = System::Drawing::Point(333, 273);
+			this->btn_AddAcc->Name = L"btn_AddAcc";
+			this->btn_AddAcc->Size = System::Drawing::Size(75, 23);
+			this->btn_AddAcc->TabIndex = 10;
+			this->btn_AddAcc->Text = L"Add";
+			this->btn_AddAcc->UseVisualStyleBackColor = true;
 			// 
 			// MainPage
 			// 
@@ -678,7 +839,11 @@ namespace Project1 {
 			this->tab_BalanceInfoTab->PerformLayout();
 			this->tabGuest->ResumeLayout(false);
 			this->tabGuest->PerformLayout();
+			this->tabInventory->ResumeLayout(false);
+			this->tabInventory->PerformLayout();
 			this->tab_Logout->ResumeLayout(false);
+			this->tabAcc->ResumeLayout(false);
+			this->tabAcc->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -695,10 +860,12 @@ private: System::Void ts_Btn_Logout_Click(System::Object^  sender, System::Event
 		}
 
 private: System::Void btn_clock_Click(System::Object^  sender, System::EventArgs^  e) {
+	//Takes the current time and the last time
 	this->txtbox_lastTimePush->Text = this->txtbox_timePush->Text;
 	this->txtbox_timePush->Text = this->txtbox_CurTime->Text;
 }
 private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
+	//Uodates current time
 	DateTime dateTime = DateTime::Now;
 	this->txtbox_CurTime->Text = dateTime.ToString();
 }
@@ -718,6 +885,9 @@ private: System::Void btn_enter_Click(System::Object^  sender, System::EventArgs
 }
 
 private: System::Void btn_Logout_Click(System::Object^  sender, System::EventArgs^  e) {
+	//Returns to the login page
+	txtbox_Pass->Text = "";
+	txtbox_User->Text = "";
 	txtbox_Pass->Visible = true;
 	txtbox_User->Visible = true;
 	btn_enter->Visible = true;
@@ -731,6 +901,8 @@ private: System::Void btn_Logout_Click(System::Object^  sender, System::EventArg
 
 
 private: System::Void btn_enter_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	//Checks username and password
+	//Then opens up program
 	String^ username = txtbox_User->Text;
 	String^ password = txtbox_Pass->Text;
 	if (password == "pass"&&username == "user")
@@ -744,6 +916,7 @@ private: System::Void btn_enter_Click_1(System::Object^  sender, System::EventAr
 	}
 	else
 	{
+		//if password and user name are wrong throws up an error
 		MessageBox::Show("Wrong username or password. Hint username is user and password is pass.");
 	}
 
