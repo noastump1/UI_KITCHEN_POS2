@@ -1,5 +1,6 @@
 #pragma once
-//#include "DB.h"
+#include "DB.h"
+#include "Scanner.h"
 
 ref class Myform;
 
@@ -12,6 +13,7 @@ namespace Project1 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Summary for MainPage
@@ -23,6 +25,8 @@ namespace Project1 {
 		{
 			InitializeComponent();
 			timer1->Start();
+			categories = db->getCategories();
+			loadCategories();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -103,6 +107,8 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  btn_Logout;
 	private: System::Windows::Forms::TextBox^  txtbox_Pass;
 	private: System::Windows::Forms::TextBox^  txtbox_User;
+
+
 	private: System::Windows::Forms::Label^  lb_pass;
 	private: System::Windows::Forms::Label^  lb_user;
 	private: System::Windows::Forms::Button^  btn_enter;
@@ -110,23 +116,35 @@ namespace Project1 {
 	private: System::Windows::Forms::TextBox^  txtbox_SearchInv;
 
 	private: System::Windows::Forms::Button^  btn_AddInv;
-	private: System::Windows::Forms::TextBox^  txtbox_AddCode;
+	private: System::Windows::Forms::TextBox^  txtbox_UPC;
+
 
 	private: System::Windows::Forms::Label^  lbl_Qty;
 	private: System::Windows::Forms::TextBox^  txtbox_Quantity;
 	private: System::Windows::Forms::TextBox^  textBox2;
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::Button^  btn_RemoveInv;
-	private: System::Windows::Forms::TextBox^  textBox3;
+private: System::Windows::Forms::TextBox^  txt_DeleteProduct;
+
+
 	private: System::Windows::Forms::TabPage^  tabAcc;
 	private: System::Windows::Forms::Button^  btn_AddAcc;
 	private: System::Windows::Forms::TextBox^  txtbox_CreatePass;
-	private: System::Windows::Forms::TextBox^  txt_AddUser;
+private: System::Windows::Forms::TextBox^  txtbox_CreateUser;
+
+
 	private: System::Windows::Forms::Label^  lb_CreatePass;
 	private: System::Windows::Forms::Label^  lb_CreateUser;
 private: System::Windows::Forms::Label^  lb_Keyword;
-private: System::Windows::Forms::Label^  lb_Code;
-private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
+private: System::Windows::Forms::TextBox^  txtbox_AddProductName;
+
+
+private: System::Windows::Forms::Label^  lb_Catagory;
+private: System::Windows::Forms::ComboBox^  cmb_categories;
+		 DB^ db = gcnew DB;
+		 ArrayList^ categories = gcnew ArrayList;
+
+private: System::Windows::Forms::Label^  label7;
 
 
 
@@ -219,18 +237,23 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button_Submit = (gcnew System::Windows::Forms::Button());
 			this->tabInventory = (gcnew System::Windows::Forms::TabPage());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->lb_Catagory = (gcnew System::Windows::Forms::Label());
+			this->cmb_categories = (gcnew System::Windows::Forms::ComboBox());
+			this->lb_Keyword = (gcnew System::Windows::Forms::Label());
+			this->txtbox_AddProductName = (gcnew System::Windows::Forms::TextBox());
 			this->btn_RemoveInv = (gcnew System::Windows::Forms::Button());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_DeleteProduct = (gcnew System::Windows::Forms::TextBox());
 			this->lbl_Qty = (gcnew System::Windows::Forms::Label());
 			this->txtbox_Quantity = (gcnew System::Windows::Forms::TextBox());
 			this->btn_SearchInv = (gcnew System::Windows::Forms::Button());
 			this->txtbox_SearchInv = (gcnew System::Windows::Forms::TextBox());
 			this->btn_AddInv = (gcnew System::Windows::Forms::Button());
-			this->txtbox_AddCode = (gcnew System::Windows::Forms::TextBox());
+			this->txtbox_UPC = (gcnew System::Windows::Forms::TextBox());
 			this->tabAcc = (gcnew System::Windows::Forms::TabPage());
 			this->btn_AddAcc = (gcnew System::Windows::Forms::Button());
 			this->txtbox_CreatePass = (gcnew System::Windows::Forms::TextBox());
-			this->txt_AddUser = (gcnew System::Windows::Forms::TextBox());
+			this->txtbox_CreateUser = (gcnew System::Windows::Forms::TextBox());
 			this->lb_CreatePass = (gcnew System::Windows::Forms::Label());
 			this->lb_CreateUser = (gcnew System::Windows::Forms::Label());
 			this->tab_Logout = (gcnew System::Windows::Forms::TabPage());
@@ -241,9 +264,6 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			this->lb_pass = (gcnew System::Windows::Forms::Label());
 			this->lb_user = (gcnew System::Windows::Forms::Label());
 			this->btn_enter = (gcnew System::Windows::Forms::Button());
-			this->txtbox_AddKeyword = (gcnew System::Windows::Forms::TextBox());
-			this->lb_Code = (gcnew System::Windows::Forms::Label());
-			this->lb_Keyword = (gcnew System::Windows::Forms::Label());
 			this->tabControl_Main->SuspendLayout();
 			this->tabMain->SuspendLayout();
 			this->tabClock->SuspendLayout();
@@ -619,17 +639,19 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			// 
 			// tabInventory
 			// 
+			this->tabInventory->Controls->Add(this->label7);
+			this->tabInventory->Controls->Add(this->lb_Catagory);
+			this->tabInventory->Controls->Add(this->cmb_categories);
 			this->tabInventory->Controls->Add(this->lb_Keyword);
-			this->tabInventory->Controls->Add(this->lb_Code);
-			this->tabInventory->Controls->Add(this->txtbox_AddKeyword);
+			this->tabInventory->Controls->Add(this->txtbox_AddProductName);
 			this->tabInventory->Controls->Add(this->btn_RemoveInv);
-			this->tabInventory->Controls->Add(this->textBox3);
+			this->tabInventory->Controls->Add(this->txt_DeleteProduct);
 			this->tabInventory->Controls->Add(this->lbl_Qty);
 			this->tabInventory->Controls->Add(this->txtbox_Quantity);
 			this->tabInventory->Controls->Add(this->btn_SearchInv);
 			this->tabInventory->Controls->Add(this->txtbox_SearchInv);
 			this->tabInventory->Controls->Add(this->btn_AddInv);
-			this->tabInventory->Controls->Add(this->txtbox_AddCode);
+			this->tabInventory->Controls->Add(this->txtbox_UPC);
 			this->tabInventory->Location = System::Drawing::Point(4, 22);
 			this->tabInventory->Name = L"tabInventory";
 			this->tabInventory->Padding = System::Windows::Forms::Padding(3);
@@ -638,26 +660,73 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			this->tabInventory->Text = L"Inventory";
 			this->tabInventory->UseVisualStyleBackColor = true;
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(445, 215);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(29, 13);
+			this->label7->TabIndex = 16;
+			this->label7->Text = L"UPC";
+			// 
+			// lb_Catagory
+			// 
+			this->lb_Catagory->AutoSize = true;
+			this->lb_Catagory->Location = System::Drawing::Point(425, 159);
+			this->lb_Catagory->Name = L"lb_Catagory";
+			this->lb_Catagory->Size = System::Drawing::Size(49, 13);
+			this->lb_Catagory->TabIndex = 15;
+			this->lb_Catagory->Text = L"Catagory";
+			// 
+			// cmb_categories
+			// 
+			this->cmb_categories->FormattingEnabled = true;
+			this->cmb_categories->Items->AddRange(gcnew cli::array< System::Object^  >(12) {
+				L"01", L"02", L"03", L"04", L"05", L"06",
+					L"07", L"08", L"09", L"10", L"11", L"12"
+			});
+			this->cmb_categories->Location = System::Drawing::Point(480, 156);
+			this->cmb_categories->Name = L"cmb_categories";
+			this->cmb_categories->Size = System::Drawing::Size(100, 21);
+			this->cmb_categories->TabIndex = 14;
+			// 
+			// lb_Keyword
+			// 
+			this->lb_Keyword->AutoSize = true;
+			this->lb_Keyword->Location = System::Drawing::Point(399, 132);
+			this->lb_Keyword->Name = L"lb_Keyword";
+			this->lb_Keyword->Size = System::Drawing::Size(75, 13);
+			this->lb_Keyword->TabIndex = 10;
+			this->lb_Keyword->Text = L"Product Name";
+			// 
+			// txtbox_AddProductName
+			// 
+			this->txtbox_AddProductName->Location = System::Drawing::Point(480, 130);
+			this->txtbox_AddProductName->Name = L"txtbox_AddProductName";
+			this->txtbox_AddProductName->Size = System::Drawing::Size(100, 20);
+			this->txtbox_AddProductName->TabIndex = 8;
+			// 
 			// btn_RemoveInv
 			// 
-			this->btn_RemoveInv->Location = System::Drawing::Point(358, 249);
+			this->btn_RemoveInv->Location = System::Drawing::Point(622, 448);
 			this->btn_RemoveInv->Name = L"btn_RemoveInv";
 			this->btn_RemoveInv->Size = System::Drawing::Size(75, 23);
 			this->btn_RemoveInv->TabIndex = 7;
 			this->btn_RemoveInv->Text = L"Remove";
 			this->btn_RemoveInv->UseVisualStyleBackColor = true;
+			this->btn_RemoveInv->Click += gcnew System::EventHandler(this, &MainPage::btn_RemoveInv_Click);
 			// 
-			// textBox3
+			// txt_DeleteProduct
 			// 
-			this->textBox3->Location = System::Drawing::Point(227, 252);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 20);
-			this->textBox3->TabIndex = 6;
+			this->txt_DeleteProduct->Location = System::Drawing::Point(492, 451);
+			this->txt_DeleteProduct->Name = L"txt_DeleteProduct";
+			this->txt_DeleteProduct->Size = System::Drawing::Size(100, 20);
+			this->txt_DeleteProduct->TabIndex = 6;
 			// 
 			// lbl_Qty
 			// 
 			this->lbl_Qty->AutoSize = true;
-			this->lbl_Qty->Location = System::Drawing::Point(246, 285);
+			this->lbl_Qty->Location = System::Drawing::Point(428, 186);
 			this->lbl_Qty->Name = L"lbl_Qty";
 			this->lbl_Qty->Size = System::Drawing::Size(46, 13);
 			this->lbl_Qty->TabIndex = 5;
@@ -665,15 +734,14 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			// 
 			// txtbox_Quantity
 			// 
-			this->txtbox_Quantity->Location = System::Drawing::Point(318, 282);
+			this->txtbox_Quantity->Location = System::Drawing::Point(480, 186);
 			this->txtbox_Quantity->Name = L"txtbox_Quantity";
-			this->txtbox_Quantity->ReadOnly = true;
 			this->txtbox_Quantity->Size = System::Drawing::Size(100, 20);
 			this->txtbox_Quantity->TabIndex = 4;
 			// 
 			// btn_SearchInv
 			// 
-			this->btn_SearchInv->Location = System::Drawing::Point(358, 187);
+			this->btn_SearchInv->Location = System::Drawing::Point(622, 389);
 			this->btn_SearchInv->Name = L"btn_SearchInv";
 			this->btn_SearchInv->Size = System::Drawing::Size(75, 23);
 			this->btn_SearchInv->TabIndex = 3;
@@ -682,32 +750,33 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			// 
 			// txtbox_SearchInv
 			// 
-			this->txtbox_SearchInv->Location = System::Drawing::Point(227, 190);
+			this->txtbox_SearchInv->Location = System::Drawing::Point(492, 391);
 			this->txtbox_SearchInv->Name = L"txtbox_SearchInv";
 			this->txtbox_SearchInv->Size = System::Drawing::Size(100, 20);
 			this->txtbox_SearchInv->TabIndex = 2;
 			// 
 			// btn_AddInv
 			// 
-			this->btn_AddInv->Location = System::Drawing::Point(358, 133);
+			this->btn_AddInv->Location = System::Drawing::Point(492, 248);
 			this->btn_AddInv->Name = L"btn_AddInv";
 			this->btn_AddInv->Size = System::Drawing::Size(75, 23);
 			this->btn_AddInv->TabIndex = 1;
-			this->btn_AddInv->Text = L"Add ";
+			this->btn_AddInv->Text = L"Add Product";
 			this->btn_AddInv->UseVisualStyleBackColor = true;
+			this->btn_AddInv->Click += gcnew System::EventHandler(this, &MainPage::btn_AddInv_Click);
 			// 
-			// txtbox_AddCode
+			// txtbox_UPC
 			// 
-			this->txtbox_AddCode->Location = System::Drawing::Point(227, 136);
-			this->txtbox_AddCode->Name = L"txtbox_AddCode";
-			this->txtbox_AddCode->Size = System::Drawing::Size(100, 20);
-			this->txtbox_AddCode->TabIndex = 0;
+			this->txtbox_UPC->Location = System::Drawing::Point(480, 212);
+			this->txtbox_UPC->Name = L"txtbox_UPC";
+			this->txtbox_UPC->Size = System::Drawing::Size(100, 20);
+			this->txtbox_UPC->TabIndex = 0;
 			// 
 			// tabAcc
 			// 
 			this->tabAcc->Controls->Add(this->btn_AddAcc);
 			this->tabAcc->Controls->Add(this->txtbox_CreatePass);
-			this->tabAcc->Controls->Add(this->txt_AddUser);
+			this->tabAcc->Controls->Add(this->txtbox_CreateUser);
 			this->tabAcc->Controls->Add(this->lb_CreatePass);
 			this->tabAcc->Controls->Add(this->lb_CreateUser);
 			this->tabAcc->Location = System::Drawing::Point(4, 22);
@@ -720,12 +789,13 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			// 
 			// btn_AddAcc
 			// 
-			this->btn_AddAcc->Location = System::Drawing::Point(333, 273);
+			this->btn_AddAcc->Location = System::Drawing::Point(329, 272);
 			this->btn_AddAcc->Name = L"btn_AddAcc";
-			this->btn_AddAcc->Size = System::Drawing::Size(75, 23);
+			this->btn_AddAcc->Size = System::Drawing::Size(104, 23);
 			this->btn_AddAcc->TabIndex = 10;
-			this->btn_AddAcc->Text = L"Add";
+			this->btn_AddAcc->Text = L"Add New User";
 			this->btn_AddAcc->UseVisualStyleBackColor = true;
+			this->btn_AddAcc->Click += gcnew System::EventHandler(this, &MainPage::btn_AddAcc_Click);
 			// 
 			// txtbox_CreatePass
 			// 
@@ -734,12 +804,12 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			this->txtbox_CreatePass->Size = System::Drawing::Size(100, 20);
 			this->txtbox_CreatePass->TabIndex = 12;
 			// 
-			// txt_AddUser
+			// txtbox_CreateUser
 			// 
-			this->txt_AddUser->Location = System::Drawing::Point(333, 156);
-			this->txt_AddUser->Name = L"txt_AddUser";
-			this->txt_AddUser->Size = System::Drawing::Size(100, 20);
-			this->txt_AddUser->TabIndex = 10;
+			this->txtbox_CreateUser->Location = System::Drawing::Point(333, 156);
+			this->txtbox_CreateUser->Name = L"txtbox_CreateUser";
+			this->txtbox_CreateUser->Size = System::Drawing::Size(100, 20);
+			this->txtbox_CreateUser->TabIndex = 10;
 			// 
 			// lb_CreatePass
 			// 
@@ -786,14 +856,14 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			// 
 			// txtbox_Pass
 			// 
-			this->txtbox_Pass->Location = System::Drawing::Point(349, 250);
+			this->txtbox_Pass->Location = System::Drawing::Point(212, 257);
 			this->txtbox_Pass->Name = L"txtbox_Pass";
 			this->txtbox_Pass->Size = System::Drawing::Size(100, 20);
 			this->txtbox_Pass->TabIndex = 9;
 			// 
 			// txtbox_User
 			// 
-			this->txtbox_User->Location = System::Drawing::Point(349, 190);
+			this->txtbox_User->Location = System::Drawing::Point(212, 171);
 			this->txtbox_User->Name = L"txtbox_User";
 			this->txtbox_User->Size = System::Drawing::Size(100, 20);
 			this->txtbox_User->TabIndex = 8;
@@ -801,7 +871,7 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			// lb_pass
 			// 
 			this->lb_pass->AutoSize = true;
-			this->lb_pass->Location = System::Drawing::Point(264, 253);
+			this->lb_pass->Location = System::Drawing::Point(95, 257);
 			this->lb_pass->Name = L"lb_pass";
 			this->lb_pass->Size = System::Drawing::Size(56, 13);
 			this->lb_pass->TabIndex = 7;
@@ -810,7 +880,7 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			// lb_user
 			// 
 			this->lb_user->AutoSize = true;
-			this->lb_user->Location = System::Drawing::Point(262, 193);
+			this->lb_user->Location = System::Drawing::Point(95, 171);
 			this->lb_user->Name = L"lb_user";
 			this->lb_user->Size = System::Drawing::Size(58, 13);
 			this->lb_user->TabIndex = 6;
@@ -818,38 +888,13 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 			// 
 			// btn_enter
 			// 
-			this->btn_enter->Location = System::Drawing::Point(361, 306);
+			this->btn_enter->Location = System::Drawing::Point(133, 310);
 			this->btn_enter->Name = L"btn_enter";
 			this->btn_enter->Size = System::Drawing::Size(75, 23);
 			this->btn_enter->TabIndex = 5;
 			this->btn_enter->Text = L"Enter";
 			this->btn_enter->UseVisualStyleBackColor = true;
 			this->btn_enter->Click += gcnew System::EventHandler(this, &MainPage::btn_enter_Click_1);
-			// 
-			// txtbox_AddKeyword
-			// 
-			this->txtbox_AddKeyword->Location = System::Drawing::Point(108, 136);
-			this->txtbox_AddKeyword->Name = L"txtbox_AddKeyword";
-			this->txtbox_AddKeyword->Size = System::Drawing::Size(100, 20);
-			this->txtbox_AddKeyword->TabIndex = 8;
-			// 
-			// lb_Code
-			// 
-			this->lb_Code->AutoSize = true;
-			this->lb_Code->Location = System::Drawing::Point(257, 108);
-			this->lb_Code->Name = L"lb_Code";
-			this->lb_Code->Size = System::Drawing::Size(32, 13);
-			this->lb_Code->TabIndex = 9;
-			this->lb_Code->Text = L"Code";
-			// 
-			// lb_Keyword
-			// 
-			this->lb_Keyword->AutoSize = true;
-			this->lb_Keyword->Location = System::Drawing::Point(131, 108);
-			this->lb_Keyword->Name = L"lb_Keyword";
-			this->lb_Keyword->Size = System::Drawing::Size(48, 13);
-			this->lb_Keyword->TabIndex = 10;
-			this->lb_Keyword->Text = L"Keyword";
 			// 
 			// MainPage
 			// 
@@ -885,16 +930,6 @@ private: System::Windows::Forms::TextBox^  txtbox_AddKeyword;
 
 		}
 #pragma endregion
-		//private: System::Void Frm_FormClosing(System::Object^ sender, FormClosingEventArgs e)
-		//{
-		//	Application app = Application::Exit();
-		//}
-	private: System::Void toolStripButton2_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
-private: System::Void ts_Btn_Logout_Click(System::Object^  sender, System::EventArgs^  e) {
-			//LoginForm1^ test = gcnew LoginForm1();
-		}
-
 private: System::Void btn_clock_Click(System::Object^  sender, System::EventArgs^  e) {
 	//Takes the current time and the last time
 	this->txtbox_lastTimePush->Text = this->txtbox_timePush->Text;
@@ -905,22 +940,18 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 	DateTime dateTime = DateTime::Now;
 	this->txtbox_CurTime->Text = dateTime.ToString();
 }
-private: System::Void btn_enter_Click(System::Object^  sender, System::EventArgs^  e) {
-	
 
-	//DB^ db = gcnew DB;
-	String^ username = txtbox_User->Text;
-	String^ password = txtbox_Pass->Text;
+//Loads Catagories into combo box
+private:
+	void loadCategories(){
+		cmb_categories->Items->Clear();
+		ArrayList^ categories = db->getCategories();
+		for (int i = 0; i < categories->Capacity; i++){
+			cmb_categories->Items->Add(categories[i]);
+		}
 
-	//bool result = db->logUserIn(username, password);
-
-	////if (result)
-	//{
-	//	MessageBox::Show("Success");
-	//}
-}
-
-private: System::Void btn_Logout_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	System::Void btn_Logout_Click(System::Object^  sender, System::EventArgs^  e) {
 	//Returns to the login page
 	txtbox_Pass->Text = "";
 	txtbox_User->Text = "";
@@ -939,11 +970,10 @@ private: System::Void btn_Logout_Click(System::Object^  sender, System::EventArg
 private: System::Void btn_enter_Click_1(System::Object^  sender, System::EventArgs^  e) {
 	//Checks username and password
 	//Then opens up program
-	//DB^ db = gcnew DB;
 	String^ username = txtbox_User->Text;
 	String^ password = txtbox_Pass->Text;
-	//bool result = db->logUserIn(username, password);
-	if (password == "pass"&&username == "user"/*||result*/)
+	bool result = db->logUserIn(username, password);
+	if (result)
 	{
 		txtbox_Pass->Visible = false;
 		txtbox_User->Visible = false;
@@ -951,12 +981,64 @@ private: System::Void btn_enter_Click_1(System::Object^  sender, System::EventAr
 		lb_user->Visible = false;
 		lb_pass->Visible = false;
 		tabControl_Main->Visible = true;
+		MessageBox::Show("Success");
 	}
 	else
 	{
 		//if password and user name are wrong throws up an error
-		MessageBox::Show("Wrong username or password. Hint username is user and password is pass.");
+		MessageBox::Show("Wrong username or password.");
 	}
+
+}
+//Creates new user and password
+private: System::Void btn_AddAcc_Click(System::Object^  sender, System::EventArgs^  e) {
+	String^ username = txtbox_CreateUser->Text;
+	String^ password = txtbox_CreatePass->Text;
+
+
+	bool result = db->createNewUser(username, password);
+
+	if (result){
+		MessageBox::Show("User Created Successfully");
+	}
+	else{
+		MessageBox::Show("Problem Creating User");
+	}
+}
+//Removes Product from Database
+private: System::Void btn_RemoveInv_Click(System::Object^  sender, System::EventArgs^  e) {
+	String^ deleteName = txt_DeleteProduct->Text;
+	bool result = db->deleteProduct(deleteName);
+	if (result){
+		MessageBox::Show("Product Deleted Successfully");
+	}
+	else
+	{
+		MessageBox::Show("Product Not Found");
+	}
+}
+//Adds new inventory item to Database
+private: System::Void btn_AddInv_Click(System::Object^  sender, System::EventArgs^  e) {
+	String^ productName = txtbox_AddProductName->Text;
+	String^ productQuantity = txtbox_Quantity->Text;
+	String^ productUPC = txtbox_UPC->Text;
+	String^ category = cmb_categories->Text;
+
+	int categoryNum = 0;
+	for (int i = 0; i < categories->Count; i++){
+		if (category == Convert::ToString(categories[i])){
+			categoryNum = i+1;
+			break;
+		}
+	}
+	bool result = db->addProductToDB(productName, categoryNum, productUPC, productQuantity);
+	if (result){
+		MessageBox::Show("Product Added Successfully");
+	}
+	else{
+		MessageBox::Show("Problem");
+	}
+
 
 }
 };

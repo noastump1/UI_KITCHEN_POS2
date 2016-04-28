@@ -164,6 +164,7 @@ Class Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Properties:
     Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution.TrustedUserHeader TrustedUserHeaderValue 'get set' : 
+    Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution.PrintControlClsidHeader PrintControlClsidHeaderValue 'get set' : 
     Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution.ServerInfoHeader ServerInfoHeaderValue 'get set' : 
     Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution.ExecutionHeader ExecutionHeaderValue 'get set' : 
   Events:
@@ -197,6 +198,8 @@ Class Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution
     Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution.LogonUserCompletedEventHandler LogonUserCompleted: 
     Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution.LogoffCompletedEventHandler LogoffCompleted: 
   Methods:
+    BeginLoadDrillthroughTarget(String, AsyncCallback, Object): PrivateScope, Public, HideBySig
+    EndLoadDrillthroughTarget(IAsyncResult): PrivateScope, Public, HideBySig
     LoadDrillthroughTargetAsync(String): PrivateScope, Public, HideBySig
     LoadDrillthroughTargetAsync(String, Object): PrivateScope, Public, HideBySig
     LoadDrillthroughTarget2(String): PrivateScope, Public, HideBySig
@@ -255,6 +258,8 @@ Class Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution
     LogoffAsync(): PrivateScope, Public, HideBySig
     LogoffAsync(Object): PrivateScope, Public, HideBySig
     CancelAsync(Object): PrivateScope, Public, HideBySig
+    LoadReportDefinition(Byte[], Warning[]&(Out)): PrivateScope, Public, HideBySig
+    BeginLoadReportDefinition(Byte[], AsyncCallback, Object): PrivateScope, Public, HideBySig
     EndLoadReportDefinition(IAsyncResult, Warning[]&(Out)): PrivateScope, Public, HideBySig
     LoadReportDefinitionAsync(Byte[]): PrivateScope, Public, HideBySig
     LoadReportDefinitionAsync(Byte[], Object): PrivateScope, Public, HideBySig
@@ -324,10 +329,10 @@ Class Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution
     GetDocumentMapAsync(): PrivateScope, Public, HideBySig
     GetDocumentMapAsync(Object): PrivateScope, Public, HideBySig
     LoadDrillthroughTarget(String): PrivateScope, Public, HideBySig
-    BeginLoadDrillthroughTarget(String, AsyncCallback, Object): PrivateScope, Public, HideBySig
-    EndLoadDrillthroughTarget(IAsyncResult): PrivateScope, Public, HideBySig
     get_TrustedUserHeaderValue(): PrivateScope, Public, HideBySig, SpecialName
     set_TrustedUserHeaderValue(TrustedUserHeader): PrivateScope, Public, HideBySig, SpecialName
+    get_PrintControlClsidHeaderValue(): PrivateScope, Public, HideBySig, SpecialName
+    set_PrintControlClsidHeaderValue(PrintControlClsidHeader): PrivateScope, Public, HideBySig, SpecialName
     get_ServerInfoHeaderValue(): PrivateScope, Public, HideBySig, SpecialName
     set_ServerInfoHeaderValue(ServerInfoHeader): PrivateScope, Public, HideBySig, SpecialName
     get_ExecutionHeaderValue(): PrivateScope, Public, HideBySig, SpecialName
@@ -405,8 +410,6 @@ Class Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution
     EndLoadReport2(IAsyncResult): PrivateScope, Public, HideBySig
     LoadReport2Async(String, String): PrivateScope, Public, HideBySig
     LoadReport2Async(String, String, Object): PrivateScope, Public, HideBySig
-    LoadReportDefinition(Byte[], Warning[]&(Out)): PrivateScope, Public, HideBySig
-    BeginLoadReportDefinition(Byte[], AsyncCallback, Object): PrivateScope, Public, HideBySig
 Class Microsoft.Reporting.WinForms.CreateStreamCallback: AutoLayout, AnsiClass, Class, Public, Sealed
   :System.MulticastDelegate
     Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -1112,6 +1115,20 @@ Class Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution
     set_ReportServerVersion(String): PrivateScope, Public, HideBySig, SpecialName
     get_ReportServerDateTime(): PrivateScope, Public, HideBySig, SpecialName
     set_ReportServerDateTime(String): PrivateScope, Public, HideBySig, SpecialName
+    get_AnyAttr(): PrivateScope, Public, HideBySig, SpecialName
+    set_AnyAttr(XmlAttribute[]): PrivateScope, Public, HideBySig, SpecialName
+Class Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution.PrintControlClsidHeader: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit
+  :System.Web.Services.Protocols.SoapHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String Clsid32 'get set' : 
+    System.String Clsid64 'get set' : 
+    System.Xml.XmlAttribute[] AnyAttr 'get set' : 
+  Methods:
+    get_Clsid32(): PrivateScope, Public, HideBySig, SpecialName
+    set_Clsid32(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Clsid64(): PrivateScope, Public, HideBySig, SpecialName
+    set_Clsid64(String): PrivateScope, Public, HideBySig, SpecialName
     get_AnyAttr(): PrivateScope, Public, HideBySig, SpecialName
     set_AnyAttr(XmlAttribute[]): PrivateScope, Public, HideBySig, SpecialName
 Class Microsoft.Reporting.WinForms.Internal.Soap.ReportingServices2005.Execution.Extension: AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit

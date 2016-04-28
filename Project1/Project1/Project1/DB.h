@@ -37,6 +37,7 @@ private:
 				DBcategories->Add(categoryName);
 			}
 			categories = DBcategories;
+			conDataBase->Close();
 		}
 		catch (Exception^) {
 			throw;
@@ -56,6 +57,7 @@ public:
 		try {
 			conDataBase->Open();
 			cmdDataBase->ExecuteReader(); //executes sql command
+			conDataBase->Close();
 		}
 		catch (Exception^) {
 			throw;
@@ -71,6 +73,7 @@ public:
 		try {
 			conDataBase->Open();
 			SQL->ExecuteReader();//Executes SQL Statement
+			conDataBase->Close();
 		}
 		catch (Exception^)
 		{
@@ -111,6 +114,7 @@ public:
 				if (decryptPass == password) return true; //if there the same return true
 				else return false;
 			}
+			conDataBase->Close();
 		}
 		catch (Exception^) {
 			throw;
@@ -136,6 +140,7 @@ public:
 		try {
 			conDataBase->Open();
 			reader = cmdDataBase->ExecuteReader();
+			conDataBase->Close();
 			if (reader->RecordsAffected == 1)
 				return true;
 			else return false;
@@ -156,6 +161,7 @@ public:
 		try {
 			conDataBase->Open();
 			reader = cmdDataBase->ExecuteReader();
+			conDataBase->Close();
 			if (reader->RecordsAffected == 1) return true;
 			else return false;
 		}
